@@ -144,12 +144,13 @@ public class BDControl extends SQLiteOpenHelper {
 			+ "constraint PK_TIPO_DE_TRABAJO primary key (IDBITACORA, IDTIPODETRABAJO));";
 
 	// Tabla Tutor
-	private static final String TABLA_TUTOR = "create table TUTOR "
-			+ "(CODIGOTUTOR CHAR(7) not null PRIMARY KEY,"
-			+ "IDBENEFICIARIO CHAR(10) not null,"
-			+ "NOMBRETUTOR CHAR(30) not null,"
-			+ "APELLIDOTUTOR CHAR(30) not null,"
-			+ "SEXOTUTOR CHAR(1) not null;";
+		private static final String TABLA_TUTOR = "create table TUTOR "
+				+ "(CODIGOTUTOR          CHAR(7)              not null,"
+				+ "IDBENEFICIARIO       CHAR(10)             not null,"
+				+ "NOMBRETUTOR          CHAR(30)             not null,"
+				+ "APELLIDOTUTOR        CHAR(30)             not null,"
+				+ "SEXOTUTOR            CHAR(1)              not null,"
+				+ "constraint PK_TUTOR primary key (CODIGOTUTOR)";
 
 	// FIN DE TABLAS DE LA BASE DE DATOS
 
