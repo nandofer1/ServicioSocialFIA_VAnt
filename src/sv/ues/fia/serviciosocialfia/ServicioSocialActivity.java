@@ -43,7 +43,7 @@ public class ServicioSocialActivity extends ListActivity {
 			tutor.setSexo("M");
 			
 			//Abriré la BD
-			BDControl db = new BDControl(getApplicationContext());
+			BDControl db = new BDControl(this);
 			String registrosInsertados = db.insertar(tutor);
 			
 			//Cerraré la BD

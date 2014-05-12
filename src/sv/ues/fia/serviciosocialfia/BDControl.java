@@ -145,12 +145,11 @@ public class BDControl extends SQLiteOpenHelper {
 
 	// Tabla Tutor
 	private static final String TABLA_TUTOR = "create table TUTOR "
-			+ "(CODIGOTUTOR          CHAR(7)              not null,"
-			+ "IDBENEFICIARIO       CHAR(10)             not null,"
-			+ "NOMBRETUTOR          CHAR(30)             not null,"
-			+ "APELLIDOTUTOR        CHAR(30)             not null,"
-			+ "SEXOTUTOR            CHAR(1)              not null,"
-			+ "constraint PK_TUTOR primary key (CODIGOTUTOR));";
+			+ "(CODIGOTUTOR CHAR(7) not null PRIMARY KEY,"
+			+ "IDBENEFICIARIO CHAR(10) not null,"
+			+ "NOMBRETUTOR CHAR(30) not null,"
+			+ "APELLIDOTUTOR CHAR(30) not null,"
+			+ "SEXOTUTOR CHAR(1) not null;";
 
 	// FIN DE TABLAS DE LA BASE DE DATOS
 
@@ -297,7 +296,7 @@ public class BDControl extends SQLiteOpenHelper {
 					valores.put("NOMBRETUTOR", tutor.getNombre());
 					valores.put("APELLIDOTUTOR", tutor.getApellido());
 					valores.put("SEXOTUTOR", tutor.getSexo());
-					
+					contador = db.insert("TUTOR", null, valores);
 					//Cerrando base de datos
 					db.close();
 					
