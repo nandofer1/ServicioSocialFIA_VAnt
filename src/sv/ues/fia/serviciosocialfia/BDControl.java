@@ -182,20 +182,159 @@ public class BDControl extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		//Creación de las tablas
-		db.execSQL(TABLA_ALUMNO_EXPEDIENTE);
-		db.execSQL(TABLA_BENEFICIARIO);
-		db.execSQL(TABLA_BITACORA);
-		db.execSQL(TABLA_CARRERAS);
-		db.execSQL(TABLA_DIRECTORSS);
-		db.execSQL(TABLA_ESCUELA);
-		db.execSQL(TABLA_INFORME);
-		db.execSQL(TABLA_PRECIOS);
-		db.execSQL(TABLA_PROYECTO);
-		db.execSQL(TABLA_TIPO_DE_PROYECTO);
-		db.execSQL(TABLA_TIPO_DE_TRABAJO);
-		db.execSQL(TABLA_TUTOR);
+		
 	}
+	
+	//Funciones de inserción, actualización y eliminación de las tablas
+	
+	//FUNCIONES DE INSERCIÓN DE DATOS
+	public String insertar(AlumnoExpediente alumExp){
+		return null;
+	}
+	
+	public String insertar(Beneficiario beneficiario){
+		return null;
+	}
+	
+	public String insertar(Bitacora bitacora){
+		return null;
+	}
+	
+	public String insertar(Carreras carreras){
+		return null;
+	}
+	
+	public String insertar(DirectorSS directorss){
+		return null;
+	}
+	
+	public String insertar(Escuela escuela){
+		return null;
+	}
+	
+	public String insertar(Informe informe){
+		return null;
+	}
+	
+	public String insertar(Precios precios){
+		return null;
+	}
+	
+	public String insertar(Proyecto proyecto){
+		return null;
+	}
+	
+	public String insertar(TipoDeProyecto tipoDeProyecto){
+		return null;
+	}
+	
+	public String insertar(TipoDeTrabajo tipoDeTrabajo){
+		return null;
+	}
+	
+	public String insertar(Tutor tutor){
+		return null;
+	}
+	//FIN FUNCIONES DE INSERCIÓN DE DATOS
 
-
+	//FUNCIONES DE ACTUALIZACIÓN DE DATOS
+	public String actualizar(AlumnoExpediente alumExp){
+		return null;
+	}
+	
+	public String actualizar(Beneficiario beneficiario){
+		return null;
+	}
+	
+	public String actualizar(Bitacora bitacora){
+		return null;
+	}
+	
+	public String actualizar(Carreras carreras){
+		return null;
+	}
+	
+	public String actualizar(DirectorSS directorss){
+		return null;
+	}
+	
+	public String actualizar(Escuela escuela){
+		return null;
+	}
+	
+	public String actualizar(Informe informe){
+		return null;
+	}
+	
+	public String actualizar(Precios precios){
+		return null;
+	}
+	
+	public String actualizar(Proyecto proyecto){
+		return null;
+	}
+	
+	public String actualizar(TipoDeProyecto tipoDeProyecto){
+		return null;
+	}
+	
+	public String actualizar(TipoDeTrabajo tipoDeTrabajo){
+		return null;
+	}
+	
+	public String actualizar(Tutor tutor){
+		return null;
+	}
+	//FIN FUNCIONES DE ACTUALIZACIÓN DE DATOS
+	
+	//FUNCIONES DE ELIMINACIÓN DE DATOS
+	public String eliminar(AlumnoExpediente alumExp){
+		return null;
+	}
+	
+	public String eliminar(Beneficiario beneficiario){
+		return null;
+	}
+	
+	public String eliminar(Bitacora bitacora){
+		return null;
+	}
+	
+	public String eliminar(Carreras carreras){
+		return null;
+	}
+	
+	public String eliminar(DirectorSS directorss){
+		return null;
+	}
+	
+	public String eliminar(Escuela escuela){
+		return null;
+	}
+	
+	public String eliminar(Informe informe){
+		return null;
+	}
+	
+	public String eliminar(Precios precios){
+		return null;
+	}
+	
+	public String eliminar(Proyecto proyecto){
+		return null;
+	}
+	
+	public String eliminar(TipoDeProyecto tipoDeProyecto){
+		return null;
+	}
+	
+	public String eliminar(TipoDeTrabajo tipoDeTrabajo){
+		return null;
+	}
+	
+	public String eliminar(Tutor tutor){
+		return null;
+	}
+	//FIN FUNCIONES DE ELIMINACIÓN DE DATOS
+	
 }
