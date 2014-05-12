@@ -3,6 +3,10 @@ package sv.ues.fia.serviciosocialfia;
 public class Proyecto {
 
 	private String idProyecto;
+	private String idBeneficiario;
+	private String carnetEmpleado;
+	private String idExpediente;
+	private String idTipoProyecto;
 	private String nombre;
 	private String descripcion;
 	private float duracion;
@@ -15,12 +19,17 @@ public class Proyecto {
 	public Proyecto(){
 		
 	}
-
-	public Proyecto(String idProyecto, String nombre, String descripcion,
-			float duracion, String fechaInicio, String fechaFin, String estado,
-			String valor) {
+	
+	public Proyecto(String idProyecto, String idBeneficiario,
+			String carnetEmpleado, String idExpediente, String idTipoProyecto,
+			String nombre, String descripcion, float duracion,
+			String fechaInicio, String fechaFin, String estado, String valor) {
 		super();
 		this.idProyecto = idProyecto;
+		this.idBeneficiario = idBeneficiario;
+		this.carnetEmpleado = carnetEmpleado;
+		this.idExpediente = idExpediente;
+		this.idTipoProyecto = idTipoProyecto;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.duracion = duracion;
@@ -30,6 +39,7 @@ public class Proyecto {
 		this.valor = valor;
 	}
 	//FIN de constructores
+
 
 	public String getIdProyecto() {
 		return idProyecto;
@@ -93,6 +103,38 @@ public class Proyecto {
 
 	public void setValor(String valor) {
 		this.valor = valor;
+	}
+
+	public String getIdBeneficiario() {
+		return idBeneficiario;
+	}
+
+	public void setIdBeneficiario(String idBeneficiario) {
+		this.idBeneficiario = idBeneficiario;
+	}
+
+	public String getCarnetEmpleado() {
+		return carnetEmpleado;
+	}
+
+	public void setCarnetEmpleado(String carnetEmpleado) {
+		this.carnetEmpleado = carnetEmpleado;
+	}
+
+	public String getIdExpediente() {
+		return idExpediente;
+	}
+
+	public void setIdExpediente(String idExpediente) {
+		this.idExpediente = idExpediente;
+	}
+
+	public String getIdTipoProyecto() {
+		return idTipoProyecto;
+	}
+
+	public void setIdTipoProyecto(String idTipoProyecto) {
+		this.idTipoProyecto = idTipoProyecto;
 	}
 	
 }

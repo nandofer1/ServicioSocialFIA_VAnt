@@ -3,6 +3,9 @@ package sv.ues.fia.serviciosocialfia;
 public class Bitacora {
 
 	private String idBitacora;
+	private String idExpediente;
+	private String idProyecto;
+	private String codigoTutor;
 	private int cantidadHoras;
 	private String fechaActividad;
 	private String estadoActividad;
@@ -16,12 +19,16 @@ public class Bitacora {
 	public Bitacora(){
 		
 	}
-
-	public Bitacora(String idBitacora, int cantidadHoras,
-			String fechaActividad, String estadoActividad,
-			String fechaAutorizado, String horaInicio, String horaFin,
-			float valorActividad, float precioTrabajo) {
+	
+	public Bitacora(String idBitacora, String idExpediente, String idProyecto,
+			String codigoTutor, int cantidadHoras, String fechaActividad,
+			String estadoActividad, String fechaAutorizado, String horaInicio,
+			String horaFin, float valorActividad, float precioTrabajo) {
+		super();
 		this.idBitacora = idBitacora;
+		this.idExpediente = idExpediente;
+		this.idProyecto = idProyecto;
+		this.codigoTutor = codigoTutor;
 		this.cantidadHoras = cantidadHoras;
 		this.fechaActividad = fechaActividad;
 		this.estadoActividad = estadoActividad;
@@ -103,6 +110,30 @@ public class Bitacora {
 
 	public void setPrecioTrabajo(float precioTrabajo) {
 		this.precioTrabajo = precioTrabajo;
+	}
+
+	public String getIdExpediente() {
+		return idExpediente;
+	}
+
+	public void setIdExpediente(String idExpediente) {
+		this.idExpediente = idExpediente;
+	}
+
+	public String getIdProyecto() {
+		return idProyecto;
+	}
+
+	public void setIdProyecto(String idProyecto) {
+		this.idProyecto = idProyecto;
+	}
+
+	public String getCodigoTutor() {
+		return codigoTutor;
+	}
+
+	public void setCodigoTutor(String codigoTutor) {
+		this.codigoTutor = codigoTutor;
 	}
 	
 	

@@ -2,7 +2,8 @@ package sv.ues.fia.serviciosocialfia;
 
 public class Carreras {
 
-	private int codCarrera;
+	private String codCarrera;
+	private String codEscuela;
 	private String nombre;
 	
 	//Constructores
@@ -10,18 +11,28 @@ public class Carreras {
 		
 	}
 
-	public Carreras(int codCarrera, String nombre) {
+	public Carreras(String codCarrera, String codEscuela, String nombre) {
+		super();
 		this.codCarrera = codCarrera;
+		this.codEscuela = codEscuela;
 		this.nombre = nombre;
 	}
 	//FIN de constructores
-
-	public int getCodCarrera() {
+	
+	public String getCodCarrera() {
 		return codCarrera;
 	}
 
-	public void setCodCarrera(int codCarrera) {
+	public void setCodCarrera(String codCarrera) {
 		this.codCarrera = codCarrera;
+	}
+
+	public String getCodEscuela() {
+		return codEscuela;
+	}
+
+	public void setCodEscuela(String codEscuela) {
+		this.codEscuela = codEscuela;
 	}
 
 	public String getNombre() {
@@ -31,5 +42,8 @@ public class Carreras {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+
+	
 	
 }

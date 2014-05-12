@@ -2,7 +2,9 @@ package sv.ues.fia.serviciosocialfia;
 
 public class Informe {
 
-	private int codInforme;
+	private String codigoTutor;
+	private String idExpediente;
+	private int corrInforme;
 	private String fechaEntrega;
 	private String fechaAutorizacion;
 	private String objetivoAlcanzado;
@@ -15,10 +17,14 @@ public class Informe {
 		
 	}
 
-	public Informe(int codInforme, String fechaEntrega,
-			String fechaAutorizacion, String objetivoAlcanzado,
-			String comentarios, String tipoInforme, String estado) {
-		this.codInforme = codInforme;
+	public Informe(String codigoTutor, String idExpediente, int corrInforme,
+			String fechaEntrega, String fechaAutorizacion,
+			String objetivoAlcanzado, String comentarios, String tipoInforme,
+			String estado) {
+		super();
+		this.codigoTutor = codigoTutor;
+		this.idExpediente = idExpediente;
+		this.corrInforme = corrInforme;
 		this.fechaEntrega = fechaEntrega;
 		this.fechaAutorizacion = fechaAutorizacion;
 		this.objetivoAlcanzado = objetivoAlcanzado;
@@ -28,12 +34,28 @@ public class Informe {
 	}
 	//FIN de constructores
 
-	public int getCodInforme() {
-		return codInforme;
+	public String getCodigoTutor() {
+		return codigoTutor;
 	}
 
-	public void setCodInforme(int codInforme) {
-		this.codInforme = codInforme;
+	public void setCodigoTutor(String codigoTutor) {
+		this.codigoTutor = codigoTutor;
+	}
+
+	public String getIdExpediente() {
+		return idExpediente;
+	}
+
+	public void setIdExpediente(String idExpediente) {
+		this.idExpediente = idExpediente;
+	}
+
+	public int getCorrInforme() {
+		return corrInforme;
+	}
+
+	public void setCorrInforme(int corrInforme) {
+		this.corrInforme = corrInforme;
 	}
 
 	public String getFechaEntrega() {

@@ -3,6 +3,7 @@ package sv.ues.fia.serviciosocialfia;
 public class Tutor {
 
 	private String codigoTutor;
+	private String idBeneficiario;
 	private String nombre;
 	private String apellido;
 	private String sexo;
@@ -11,9 +12,12 @@ public class Tutor {
 	public Tutor(){
 		
 	}
-
-	public Tutor(String codigoTutor, String nombre, String apellido, String sexo) {
+	
+	public Tutor(String codigoTutor, String idBeneficiario, String nombre,
+			String apellido, String sexo) {
+		super();
 		this.codigoTutor = codigoTutor;
+		this.idBeneficiario = idBeneficiario;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.sexo = sexo;
@@ -50,6 +54,14 @@ public class Tutor {
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public String getIdBeneficiario() {
+		return idBeneficiario;
+	}
+
+	public void setIdBeneficiario(String idBeneficiario) {
+		this.idBeneficiario = idBeneficiario;
 	}
 	
 

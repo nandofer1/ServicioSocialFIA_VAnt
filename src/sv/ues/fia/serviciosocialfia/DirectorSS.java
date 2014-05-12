@@ -3,6 +3,7 @@ package sv.ues.fia.serviciosocialfia;
 public class DirectorSS {
 
 	private String carnet;
+	private String codEscuela;
 	private String nombre;
 	private String apellido;
 	private String sexo;
@@ -14,9 +15,11 @@ public class DirectorSS {
 		
 	}
 
-	public DirectorSS(String carnet, String nombre, String apellido,
-			String sexo, String fechaInicio, String fechaFin) {
+	public DirectorSS(String carnet, String codEscuela, String nombre,
+			String apellido, String sexo, String fechaInicio, String fechaFin) {
+		super();
 		this.carnet = carnet;
+		this.codEscuela = codEscuela;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.sexo = sexo;
@@ -71,6 +74,14 @@ public class DirectorSS {
 
 	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
+	}
+
+	public String getCodEscuela() {
+		return codEscuela;
+	}
+
+	public void setCodEscuela(String codEscuela) {
+		this.codEscuela = codEscuela;
 	}
 	
 

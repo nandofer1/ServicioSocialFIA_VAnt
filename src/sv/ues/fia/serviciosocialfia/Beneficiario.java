@@ -3,6 +3,7 @@ package sv.ues.fia.serviciosocialfia;
 public class Beneficiario {
 
 	private String idBeneficiario;
+	private String carnetEmpleado;
 	private String nombreOrganizacion;
 	private String nombreRepresentante;
 	private String apellidoRepresentante;
@@ -14,11 +15,14 @@ public class Beneficiario {
 	public Beneficiario(){
 		
 	}
-
-	public Beneficiario(String idBeneficiario, String nombreOrganizacion,
-			String nombreRepresentante, String apellidoRepresentante,
-			int telefBeneficiario, String direccionBeneficiario, String mail) {
+	
+	public Beneficiario(String idBeneficiario, String carnetEmpleado,
+			String nombreOrganizacion, String nombreRepresentante,
+			String apellidoRepresentante, int telefBeneficiario,
+			String direccionBeneficiario, String mail) {
+		super();
 		this.idBeneficiario = idBeneficiario;
+		this.carnetEmpleado = carnetEmpleado;
 		this.nombreOrganizacion = nombreOrganizacion;
 		this.nombreRepresentante = nombreRepresentante;
 		this.apellidoRepresentante = apellidoRepresentante;
@@ -34,6 +38,14 @@ public class Beneficiario {
 
 	public void setIdBeneficiario(String idBeneficiario) {
 		this.idBeneficiario = idBeneficiario;
+	}
+
+	public String getCarnetEmpleado() {
+		return carnetEmpleado;
+	}
+
+	public void setCarnetEmpleado(String carnetEmpleado) {
+		this.carnetEmpleado = carnetEmpleado;
 	}
 
 	public String getNombreOrganizacion() {

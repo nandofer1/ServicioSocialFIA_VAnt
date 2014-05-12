@@ -2,6 +2,7 @@ package sv.ues.fia.serviciosocialfia;
 
 public class AlumnoExpediente {
 	private String idExpediente;
+	private String carnetEmpleado;
 	private String carnet;
 	private String nombre;
 	private String apellido;
@@ -22,14 +23,16 @@ public class AlumnoExpediente {
 	public AlumnoExpediente(){
 			
 	}
-
-	public AlumnoExpediente(String idExpediente, String carnet, String nombre,
-			String apellido, String sexo, String fechaInicioServicio,
-			String fechaFinServicio, String estado, String telefono,
-			String email, String observaciones, float valorServicio,
-			int horasAcumula, String fechaAcumula, String idBitacora,
-			String codCarrera) {
+	
+	public AlumnoExpediente(String idExpediente, String carnetEmpleado,
+			String carnet, String nombre, String apellido, String sexo,
+			String fechaInicioServicio, String fechaFinServicio, String estado,
+			String telefono, String email, String observaciones,
+			float valorServicio, int horasAcumula, String fechaAcumula,
+			String idBitacora, String codCarrera) {
+		super();
 		this.idExpediente = idExpediente;
+		this.carnetEmpleado = carnetEmpleado;
 		this.carnet = carnet;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -47,13 +50,21 @@ public class AlumnoExpediente {
 		this.codCarrera = codCarrera;
 	}
 	//FIN de constructores
-
+	
 	public String getIdExpediente() {
 		return idExpediente;
 	}
 
 	public void setIdExpediente(String idExpediente) {
 		this.idExpediente = idExpediente;
+	}
+
+	public String getCarnetEmpleado() {
+		return carnetEmpleado;
+	}
+
+	public void setCarnetEmpleado(String carnetEmpleado) {
+		this.carnetEmpleado = carnetEmpleado;
 	}
 
 	public String getCarnet() {
