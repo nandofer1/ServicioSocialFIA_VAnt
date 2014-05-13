@@ -204,7 +204,7 @@ public class BDControl extends SQLiteOpenHelper {
 		
 		//Variables para controlar los registros insertados
 		long contador = 0;
-		String registrosInsertados = "Registros insertado # = ";
+		String registrosInsertados = "Registro insertado # = ";
 		
 		if(db != null){
 			ContentValues valores = new ContentValues();
@@ -243,7 +243,38 @@ public class BDControl extends SQLiteOpenHelper {
 	}
 
 	public String insertar(Beneficiario beneficiario) {
-		return null;
+		//Abriendo base de datos
+		SQLiteDatabase db = getWritableDatabase();
+		//Variables para controlar los registros insertados
+		long contador = 0;
+		String registrosInsertados = "Registro insertado # = ";
+		
+		if(db != null){
+			ContentValues valores = new ContentValues();
+			valores.put("IDBENEFICIARIO", beneficiario.getIdBeneficiario());
+			valores.put("CARNETEMPLEADO", beneficiario.getCarnetEmpleado());
+			valores.put("NOMBREORGANIZACION", beneficiario.getNombreOrganizacion());
+			valores.put("NOMBREREPRESENTANTE", beneficiario.getNombreRepresentante());
+			valores.put("APELLIDOREPRESENTANTE", beneficiario.getApellidoRepresentante());
+			valores.put("TELEFONOBENEF", beneficiario.getTelefBeneficiario());
+			valores.put("DIRECCIONBENEF", beneficiario.getDireccionBeneficiario());
+			valores.put("EMAIL", beneficiario.getMail());
+			contador = db.insert("BENEFICIARIO", null, valores);
+			
+			//Cerrando base de datos
+			db.close();
+			
+			if(contador==-1 || contador==0){
+				registrosInsertados= "Error al Insertar el registro, Registro"
+						+ "Duplicado. Verificar inserción";
+			}
+			else {
+				registrosInsertados=registrosInsertados+contador;
+			}
+			return registrosInsertados;
+		}
+		
+		return "La Base de Datos no existe";
 	}
 
 	public String insertar(Bitacora bitacora) {
