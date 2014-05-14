@@ -13,7 +13,8 @@ public class Proyecto {
 	private String fechaInicio;
 	private String fechaFin;
 	private String estado;
-	private String valor;
+	//cosme en la BD has puesto tipo de dato float, y aqui en el constructor has puesto char
+	private float valor;
 	
 	//Constructores
 	public Proyecto(){
@@ -23,7 +24,7 @@ public class Proyecto {
 	public Proyecto(String idProyecto, String idBeneficiario,
 			String carnetEmpleado, String idExpediente, String idTipoProyecto,
 			String nombre, String descripcion, float duracion,
-			String fechaInicio, String fechaFin, String estado, String valor) {
+			String fechaInicio, String fechaFin, String estado, float valor) {
 		super();
 		this.idProyecto = idProyecto;
 		this.idBeneficiario = idBeneficiario;
@@ -97,11 +98,11 @@ public class Proyecto {
 		this.estado = estado;
 	}
 
-	public String getValor() {
+	public float getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 

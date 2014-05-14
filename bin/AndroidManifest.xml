@@ -26,6 +26,14 @@
             android:name="sv.ues.fia.serviciosocialfia.BDControl"
             android:label="@string/title_activity_bdcontrol" >
         </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.GestionPrecios"
+            android:label="@string/title_activity_gestion_precios" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.AutorizarProyectos"
+            android:label="@string/title_activity_autorizar_proyectos" >
+        </activity>
     </application>
 
 </manifest>

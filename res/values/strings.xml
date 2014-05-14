@@ -6,5 +6,13 @@
     <string name="action_settings">Opciones</string>
     <string name="title_activity_bdcontrol">BDControl</string>
     <string name="elija_rol">Elija rol</string>
+    <string name="title_activity_gestion_precios">GestionPrecios</string>
+    <string name="lblGestionPrecios">Gestion de Precios de Proyectos</string>
+    <string name="lblAgregarPrecio">Nuevo Precio</string>
+    <string name="lblConsultarPrecios">Cosnultar Precios</string>
+    <string name="btnimgNuevoPrecio" />
+    <string name="btnimgConsultarPrecio" />
+    <string name="title_activity_autorizar_proyectos">AutorizarProyectos</string>
+    <string name="lblTituloAutorizarProyectos">Proyectos Pendientes</string>
 
 </resources>
