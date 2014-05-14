@@ -608,7 +608,46 @@ public class BDControl extends SQLiteOpenHelper {
 
 	// FUNCIONES DE ACTUALIZACIÓN DE DATOS
 	public String actualizar(AlumnoExpediente alumExp) {
-		return null;
+		// Abriendo la base de datos
+		SQLiteDatabase db = getWritableDatabase();
+
+		// Variables para controlar los registros insertados
+		long contador = 0;
+		String registrosModificados = "Registro modificado # = ";
+
+		if (db != null) {
+			ContentValues valores = new ContentValues();
+			String[] id = { alumExp.getIdExpediente(), alumExp.getIdBitacora(),
+					alumExp.getCarnetEmpleado(), alumExp.getCodCarrera() };
+			valores.put("CARNETALUMNO", alumExp.getCarnet());
+			valores.put("NOMBREALUMNO", alumExp.getNombre());
+			valores.put("APELLIDOALUMNO", alumExp.getApellido());
+			valores.put("SEXOALUMNO", alumExp.getSexo());
+			valores.put("FECHAINICIOSERVICIO", alumExp.getFechaInicioServicio());
+			valores.put("FECHAFINSERVICIO", alumExp.getFechaFinServicio());
+			valores.put("ESTADOALUMNO", alumExp.getEstado());
+			valores.put("TELEFONO", alumExp.getTelefono());
+			valores.put("EMAIL", alumExp.getEmail());
+			valores.put("OBSERVACIONES", alumExp.getObservaciones());
+			valores.put("VALORSERVICIO", alumExp.getValorServicio());
+			valores.put("HORASACUMULA", alumExp.getHorasAcumula());
+			valores.put("FECHAACUMULA", alumExp.getFechaAcumula());
+			contador = db.update("ALUMNOEXPEDIENTE", valores,
+					"IDEXPEDIENTE = ? AND IDBITACORA = ?"
+							+ " AND CARNETEMPLEADO = ? AND CODCARRERA = ?", id);
+
+			// Cerrando base de datos
+			db.close();
+
+			if (contador == -1 || contador == 0) {
+				registrosModificados = "Error al modificar el registro, Registro"
+						+ "Duplicado. Verificar modificación";
+			} else {
+				registrosModificados = registrosModificados + contador;
+			}
+			return registrosModificados;
+		}
+		return "La Base de Datos no existe";
 	}
 
 	public String actualizar(Beneficiario beneficiario) {
