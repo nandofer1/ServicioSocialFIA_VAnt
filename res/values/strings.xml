@@ -14,5 +14,8 @@
     <string name="btnimgConsultarPrecio" />
     <string name="title_activity_autorizar_proyectos">AutorizarProyectos</string>
     <string name="lblTituloAutorizarProyectos">Proyectos Pendientes</string>
+    <string name="title_activity_aprobar_reprobar_proyecto">AprobarReprobarProyecto</string>
+    <string name="ClblNombreProyecto">Nombre:</string>
+    <string name="CDescripcionProyecto">Descripcion</string>
 
 </resources>

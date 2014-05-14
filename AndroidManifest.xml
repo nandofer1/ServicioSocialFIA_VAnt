@@ -34,6 +34,10 @@
             android:name="sv.ues.fia.serviciosocialfia.AutorizarProyectos"
             android:label="@string/title_activity_autorizar_proyectos" >
         </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.AprobarReprobarProyecto"
+            android:label="@string/title_activity_aprobar_reprobar_proyecto" >
+        </activity>
     </application>
 
 </manifest>
