@@ -123,7 +123,7 @@ public class BDControl extends SQLiteOpenHelper {
 	// Tabla Precios
 	private static final String TABLA_PRECIOS = "create table PRECIOS "
 			+ "(CORR                 CHAR(2)              not null,"
-			+ "IDBITACORA           CHAR(10)             not null,"
+			//+ "IDBITACORA           CHAR(10)             not null,"
 			+ "IDTIPODETRABAJO      CHAR(10)             not null,"
 			+ "PRECIO               FLOAT                not null,"
 			+ "FECHAINICIALAPLIPRE  CHAR(10)             not null,"
@@ -156,21 +156,20 @@ public class BDControl extends SQLiteOpenHelper {
 
 	// Tabla TipoDeTrabajo
 	private static final String TABLA_TIPO_DE_TRABAJO = "create table TIPO_DE_TRABAJO "
-			+ "(IDBITACORA           CHAR(10)             not null,"
-			+ "IDTIPODETRABAJO      CHAR(10)             not null,"
+			//+ "(IDBITACORA           CHAR(10)             not null,"
+			+ "(IDTIPODETRABAJO      CHAR(10)             not null,"
 			+ "CORR                 CHAR(2),"
 			+ "NOMBRETIPO           CHAR(30)             not null,"
-			+ "constraint PK_TIPO_DE_TRABAJO primary key (IDBITACORA, IDTIPODETRABAJO));";
+			+ "constraint PK_TIPO_DE_TRABAJO primary key (IDTIPODETRABAJO));";
 
 	// Tabla Tutor
-		private static final String TABLA_TUTOR = "create table TUTOR "
-				+ "(CODIGOTUTOR          CHAR(7)              not null,"
-				+ "IDBENEFICIARIO       CHAR(10)             not null,"
-				+ "NOMBRETUTOR          CHAR(30)             not null,"
-				+ "APELLIDOTUTOR        CHAR(30)             not null,"
-				+ "SEXOTUTOR            CHAR(1)              not null,"
-				+ "constraint PK_TUTOR primary key (CODIGOTUTOR));";
-			
+	 private static final String TABLA_TUTOR = "create table TUTOR "
+	 	 + "(CODIGOTUTOR CHAR(7) not null,"
+	 	 + "IDBENEFICIARIO CHAR(10) not null,"
+	 	 + "NOMBRETUTOR CHAR(30) not null,"
+	 	 + "APELLIDOTUTOR CHAR(30) not null,"
+	 	 + "SEXOTUTOR CHAR(1) not null,"
+	 	 + "constraint PK_TUTOR primary key (CODIGOTUTOR));";
 	// FIN DE TABLAS DE LA BASE DE DATOS
 
 	// Constructor
@@ -1236,55 +1235,430 @@ public class BDControl extends SQLiteOpenHelper {
 	
 	
 	// FUNCIONES DE ELIMINACIÓN DE DATOS
-	public String eliminar(AlumnoExpediente alumExp) {
-		return null;
-	}
+		public String eliminar(AlumnoExpediente alumExp) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
 
-	public String eliminar(Beneficiario beneficiario) {
-		return null;
-	}
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
 
-	public String eliminar(Bitacora bitacora) {
-		return null;
-	}
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "IDEXPEDIENTE = '" + alumExp.getIdExpediente() + "'";
+				where = where + "AND IDBITACORA = '" + alumExp.getIdBitacora()
+						+ "'";
+				where = where + "AND CARNETEMPLEADO = '"
+						+ alumExp.getCarnetEmpleado() + "'";
+				where = where + "AND CODCARRERA ='" + alumExp.getCodCarrera() + "'";
 
-	public String eliminar(Carreras carreras) {
-		return null;
-	}
+				valores.put("CARNETALUMNO", alumExp.getCarnet());
+				valores.put("NOMBREALUMNO", alumExp.getNombre());
+				valores.put("APELLIDOALUMNO", alumExp.getApellido());
+				valores.put("SEXOALUMNO", alumExp.getSexo());
+				valores.put("FECHAINICIOSERVICIO", alumExp.getFechaInicioServicio());
+				valores.put("FECHAFINSERVICIO", alumExp.getFechaFinServicio());
+				valores.put("ESTADOALUMNO", alumExp.getEstado());
+				valores.put("TELEFONO", alumExp.getTelefono());
+				valores.put("EMAIL", alumExp.getEmail());
+				valores.put("OBSERVACIONES", alumExp.getObservaciones());
+				valores.put("VALORSERVICIO", alumExp.getValorServicio());
+				valores.put("HORASACUMULA", alumExp.getHorasAcumula());
+				valores.put("FECHAACUMULA", alumExp.getFechaAcumula());
+				contador = db.delete("ALUMNOEXPEDIENTE", where, null);
 
-	public String eliminar(DirectorSS directorss) {
-		return null;
-	}
+				// Cerrando base de datos
+				db.close();
 
-	public String eliminar(Escuela escuela) {
-		return null;
-	}
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
 
-	public String eliminar(Informe informe) {
-		return null;
-	}
+		public String eliminar(Beneficiario beneficiario) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
 
-	public String eliminar(Precios precios) {
-		return null;
-	}
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
 
-	public String eliminar(Proyecto proyecto) {
-		return null;
-	}
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "IDBENEFICIARIO =  '"
+						+ beneficiario.getIdBeneficiario() + "'";
+				where = where + "AND CARNETEMPLEADO = '"
+						+ beneficiario.getCarnetEmpleado() + "'";
 
-	public String eliminar(TipoDeProyecto tipoDeProyecto) {
-		return null;
-	}
+				valores.put("NOMBREORGANIZACION",
+						beneficiario.getNombreOrganizacion());
+				valores.put("NOMBREREPRESENTANTE",
+						beneficiario.getNombreRepresentante());
+				valores.put("APELLIDOREPRESENTANTE",
+						beneficiario.getApellidoRepresentante());
+				valores.put("TELEFONOBENEF", beneficiario.getTelefBeneficiario());
+				valores.put("DIRECCIONBENEF",
+						beneficiario.getDireccionBeneficiario());
+				valores.put("EMAIL", beneficiario.getMail());
+				contador = db.delete("BENEFICIARIO", where, null);
 
-	public String eliminar(TipoDeTrabajo tipoDeTrabajo) {
-		return null;
-	}
+				// Cerrando base de datos
+				db.close();
 
-	public String eliminar(Tutor tutor) {
-		return null;
-	}
-	// FIN FUNCIONES DE ELIMINACIÓN DE DATOS
-	
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Bitacora bitacora) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "IDBITACORA = '" + bitacora.getIdBitacora() + "'";
+				where = where + "AND IDEXPEDIENTE = '"+ bitacora.getIdExpediente() + "'";
+				where = where + "AND IDPROYECTO = '"+ bitacora.getIdProyecto() + "'";
+				where = where + "AND CODIGOTUTOR = '"+ bitacora.getCodigoTutor() + "'";
+				
+
+				valores.put("CANTIDADHORAS", bitacora.getCantidadHoras());
+				valores.put("FECHAACTIVIDAD", bitacora.getFechaActividad());
+				valores.put("ESTADOACTIVIDAD", bitacora.getEstadoActividad());
+				valores.put("FECHAAUTORIZADO", bitacora.getFechaAutorizado());
+				valores.put("HORAINICIO", bitacora.getHoraInicio());
+				valores.put("HORAFIN", bitacora.getHoraFin());
+				valores.put("VALORACTIVIDAD", bitacora.getValorActividad());
+				valores.put("PRECIOTRABAJO", bitacora.getPrecioTrabajo());
+				contador = db.delete("BITACORA", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Carreras carreras) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "CODCARRERA = '" + carreras.getCodCarrera() + "'";
+				where = where + "AND CODESCUELA = '"+ carreras.getCodEscuela() + "'";	
+				
+				valores.put("NOMBRECARRERA", carreras.getNombre());
+				contador = db.delete("CARRERAS", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(DirectorSS directorss) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "CARNETEMPLEADO = '" + directorss.getCarnet() + "'";
+				where = where + "AND CODESCUELA = '"+ directorss.getCodEscuela() + "'";	
+			
+				valores.put("NOMBREDIRECTOR", directorss.getNombre());
+				valores.put("APELLIDODIRECTOR", directorss.getApellido());
+				valores.put("SEXODIRECTOR", directorss.getSexo());
+				valores.put("FECHAINICIO", directorss.getFechaInicio());
+				valores.put("FECHAFIN", directorss.getFechaFin());
+				contador = db.delete("DIRECTORSS", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Escuela escuela) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "CODESCUELA = '" + escuela.getCodEscuela() + "'";
+				where = where + "AND CARNETEMPLEADO = '"+ escuela.getCarnetEmpleado() + "'";	
+
+				valores.put("NOMBREESCUELA", escuela.getNombre());
+				contador = db.delete("ESCUELA", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Informe informe) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "CODIGOTUTOR = '" + informe.getCodigoTutor() + "'";
+				where = where + "AND IDEXPEDIENTE = '"+ informe.getIdExpediente() + "'";	
+
+				valores.put("CORRINFORME", informe.getCorrInforme());
+				valores.put("FECHAENTREGA", informe.getFechaEntrega());
+				valores.put("FECHAAUTORIZACION", informe.getFechaAutorizacion());
+				valores.put("OBJETIVOALCANZADO", informe.getObjetivoAlcanzado());
+				valores.put("COMENTARIOS", informe.getComentarios());
+				valores.put("TIPOINFORME", informe.getTipoInforme());
+				valores.put("ESTADO", informe.getEstado());
+				contador = db.delete("INFORME", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Precios precios) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "CORR = '" + precios.getCorrelativo() + "'";
+				where = where + "AND IDBITACORA = '"+ precios.getIdBitacora() + "'";
+				where = where + "AND IDTIPODETRABAJO = '"+ precios.getIdTipoDeTrabajo() + "'";
+
+				valores.put("PRECIO", precios.getPrecio());
+				valores.put("FECHAINICIALAPLIPRE", precios.getFechaInicialApliPre());
+				valores.put("FECHAFINALAPLIPRE", precios.getFechaFinalApliPre());
+				valores.put("OBSERVACION", precios.getObservacion());
+				contador = db.delete("PRECIOS", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Proyecto proyecto) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "IDPROYECTO = '" + proyecto.getIdProyecto() + "'";
+				where = where + "AND IDBENEFICIARIO = '"+ proyecto.getIdBeneficiario() + "'";
+				where = where + "AND CARNETEMPLEADO = '"+ proyecto.getCarnetEmpleado() + "'";
+				where = where + "AND IDEXPEDIENTE = '"+ proyecto.getIdExpediente() + "'";
+				where = where + "AND IDTIPOPROYECTO = '"+ proyecto.getIdTipoProyecto() + "'";
+
+				valores.put("NOMBREDEPROYECTO", proyecto.getNombre());
+				valores.put("DESCRIPCIONPROYECTO", proyecto.getDescripcion());
+				valores.put("DURACIONPROYECTO", proyecto.getDuracion());
+				valores.put("FECHAINICIOPROY", proyecto.getFechaInicio());
+				valores.put("FECHAFINPROY", proyecto.getFechaFin());
+				valores.put("ESTADOPROYECTO", proyecto.getEstado());
+				valores.put("VALORPROYECTO", proyecto.getValor());
+				contador = db.delete("PROYECTO", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(TipoDeProyecto tipoDeProyecto) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "IDTIPODEPROYECTO = '" + tipoDeProyecto.getIdTipoProyecto() + "'";
+				where = where + "AND IDPROYECTO = '"+ tipoDeProyecto.getIdProyecto() + "'";
+
+				valores.put("MODALIDADPROYECTO",
+						tipoDeProyecto.getModalidadProyecto());
+				contador = db.delete("TIPODEPROYECTO", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(TipoDeTrabajo tipoDeTrabajo) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "IDBITACORA = '" + tipoDeTrabajo.getIdBitacora() + "'";
+				where = where + "AND IDTIPODETRABAJO = '"+ tipoDeTrabajo.getIdTipoTrabajo() + "'";
+
+				valores.put("CORR", tipoDeTrabajo.getCorrelativo());
+				valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
+				contador = db.delete("TIPODETRABAJO", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+
+		public String eliminar(Tutor tutor) {
+			// Abriendo la base de datos
+			SQLiteDatabase db = getWritableDatabase();
+
+			// Variables para controlar los registros insertados
+			long contador = 0;
+			String registrosAfectados = "Filas afectadas = ";
+
+			if (db != null) {
+				ContentValues valores = new ContentValues();
+				String where = "CODIGOTUTOR = '" + tutor.getCodigoTutor() + "'";
+				where = where + "AND IDBENEFICIARIO = '"+ tutor.getIdBeneficiario() + "'";
+
+				valores.put("NOMBRETUTOR", tutor.getNombre());
+				valores.put("APELLIDOTUTOR", tutor.getApellido());
+				valores.put("SEXOTUTOR", tutor.getSexo());
+				contador = db.delete("TUTOR", where, null);
+
+				// Cerrando base de datos
+				db.close();
+
+				if (contador == -1 || contador == 0) {
+					registrosAfectados = "Error al eliminar el registro. Registro"
+							+ "Inexistente. Verificar eliminación";
+				} else {
+					registrosAfectados = registrosAfectados + contador;
+				}
+				return registrosAfectados;
+			}
+			return "La Base de Datos no existe";
+		}
+		// FIN FUNCIONES DE ELIMINACIÓN DE DATOS
 	
 	
 

@@ -104,7 +104,7 @@ public class ServicioSocialActivity extends ListActivity {
 			
 			//PRUEBA CON TIPO DE PROYECTO
 			
-			TipoDeProyecto tipoproyecto=new TipoDeProyecto();
+			/*TipoDeProyecto tipoproyecto=new TipoDeProyecto();
 			tipoproyecto.setIdTipoProyecto("exraoficia");
 			tipoproyecto.setIdProyecto("asxc");
 			tipoproyecto.setModalidadProyecto("Pasantía");
@@ -119,7 +119,7 @@ public class ServicioSocialActivity extends ListActivity {
 				db.close();
 				Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
 			
-			
+			*/
 			
 			//Prueba con la tabla ALUMNOEXPEDIENTE
 		
