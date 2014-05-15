@@ -19,7 +19,7 @@ ArrayList<String>ListaActividades=new ArrayList<String>();
 		ListaActividades.add("Apoyo a la investigación científica");
 		ListaActividades.add("Pasantías");
 		ListaActividades.add("Voluntariado");
-		ListaActividades.add("Prácticas profesionales");
+		ListaActividades.add("Prácticas profe sionales");
 		ListaActividades.add("Extensión cultural");
 		ListaActividades.add("Transferencia de tecnología");
 		

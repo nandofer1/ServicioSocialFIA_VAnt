@@ -74,7 +74,7 @@ BDControl	helper;
                       .show();
                     AprobarReprobarProyecto.idproyecto=idproy.get(position);
                   //Abrimos el activity donde se mostrara el proyecto seleccionado
-                    Intent AbrirActAproReproP = new Intent(AutorizarProyectos.this, ModElimPreciosActividad.class);
+                    Intent AbrirActAproReproP = new Intent(AutorizarProyectos.this, AprobarReprobarProyecto.class);
                     startActivity(AbrirActAproReproP );
                    
                     
