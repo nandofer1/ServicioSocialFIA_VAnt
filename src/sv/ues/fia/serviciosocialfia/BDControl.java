@@ -1522,5 +1522,9 @@ public class BDControl extends SQLiteOpenHelper {
 		return "La Base de Datos no existe";
 	}
 	// FIN FUNCIONES DE ELIMINACIÓN DE DATOS
+	
+	// FUNCIONES DE CONSULTA DE DATOS
+	
+	// FIN DE FUNCIONES DE CONSULTA DE DATOS
 
 }
