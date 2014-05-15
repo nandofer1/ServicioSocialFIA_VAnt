@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sv.ues.fia.serviciosocialfia"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.ServicioSocialActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.BDControl"
+            android:label="@string/title_activity_bdcontrol" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.GestionPrecios"
+            android:label="@string/title_activity_gestion_precios" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.AutorizarProyectos"
+            android:label="@string/title_activity_autorizar_proyectos" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.AprobarReprobarProyecto"
+            android:label="@string/title_activity_aprobar_reprobar_proyecto" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.InsertarPrecioActividad"
+            android:label="@string/title_activity_insertar_precio_actividad" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.ModElimPreciosActividad"
+            android:label="@string/title_activity_mod_elim_precios_actividad" >
+        </activity>
+    </application>
+
+</manifest>

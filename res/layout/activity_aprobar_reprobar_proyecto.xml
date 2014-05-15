@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="17dp"
         android:text="@string/ClblNombreProyecto"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -22,9 +22,102 @@
         android:id="@+id/ClblContenidoNombreProyecto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/CtextViewNombreProyecto"
-        android:layout_marginLeft="51dp"
-        android:layout_toRightOf="@+id/CtextViewNombreProyecto"
+        android:layout_alignBaseline="@+id/CtextViewNombreProyecto"
+        android:layout_alignBottom="@+id/CtextViewNombreProyecto"
+        android:layout_centerHorizontal="true"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/ClblmodalidadProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/ClblModalidadProyecto"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/ClblTituloAlumno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ClblmodalidadProyecto"
+        android:layout_below="@+id/ClblmodalidadProyecto"
+        android:layout_marginTop="28dp"
+        android:text="@string/ClblAlumno"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/ClblContenidoAlumno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ClblcontenidoModalidad"
+        android:layout_alignTop="@+id/ClblTituloAlumno"
+        android:text="@string/ClblContenidoAlumno" />
+
+    <TextView
+        android:id="@+id/ClblTituloBeneficiario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ClblTituloAlumno"
+        android:layout_below="@+id/ClblTituloAlumno"
+        android:layout_marginTop="34dp"
+        android:text="@string/ClblBeneficiario"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/ClblContenidoBeneficiario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ClblTituloBeneficiario"
+        android:layout_alignBottom="@+id/ClblTituloBeneficiario"
+        android:layout_alignLeft="@+id/ClblContenidoAlumno"
+        android:text="@string/ClblContenidoBeneficiario" />
+
+    <Button
+        android:id="@+id/CbtnReprobar"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/ClblContenidoNombreProyecto"
+        android:text="@string/CbtnReprobarProyecto" />
+
+    <Button
+        android:id="@+id/CbtnAprobar"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CbtnReprobar"
+        android:layout_alignBottom="@+id/CbtnReprobar"
+        android:layout_alignLeft="@+id/ClblTituloBeneficiario"
+        android:text="@string/CbtnAprobarProyecto" />
+
+    <TextView
+        android:id="@+id/ClblcontenidoModalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ClblmodalidadProyecto"
+        android:layout_toRightOf="@+id/ClblContenidoNombreProyecto"
+        android:text="@string/ClblContenidoModalidadProyecto" />
+
+    <TextView
+        android:id="@+id/CtextviewContenidoDescripcionProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CtextViewNombreProyecto"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="15dp"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CtextViewNombreProyecto"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/CbtnAprobar"
+        android:text="@string/ClblDescripcion"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

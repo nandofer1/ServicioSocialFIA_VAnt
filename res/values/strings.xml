@@ -20,5 +20,14 @@
     <string name="title_activity_insertar_precio_actividad">InsertarPrecioActividad</string>
     <string name="CImbuttonInsertPrecio" />
     <string name="title_activity_mod_elim_precios_actividad">ModElimPreciosActividad</string>
+    <string name="ClblAlumno">Alumno</string>
+    <string name="ClblBeneficiario">Beneficiario:</string>
+    <string name="ClblModalidadProyecto">Modalidad:</string>
+    <string name="CbtnAprobarProyecto">Aprobar</string>
+    <string name="CbtnReprobarProyecto">Reprobar</string>
+    <string name="ClblContenidoModalidadProyecto">Modalidad</string>
+    <string name="ClblContenidoAlumno">Alumno</string>
+    <string name="ClblContenidoBeneficiario">Beneficiario</string>
+    <string name="ClblDescripcion">Descripción</string>
 
 </resources>

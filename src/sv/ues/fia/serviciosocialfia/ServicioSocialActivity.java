@@ -64,6 +64,7 @@ public class ServicioSocialActivity extends ListActivity {
 //			tutor.setIdBeneficiario("Alguien2");
 //			tutor.setNombre("Raul");
 //			tutor.setSexo("M");
+			/*
 			Proyecto proyecto = new Proyecto();
 			proyecto.setIdProyecto("C000");
 			proyecto.setIdBeneficiario("cb31234");
@@ -76,21 +77,53 @@ public class ServicioSocialActivity extends ListActivity {
 			proyecto.setFechaInicio("15/06/2014");
 			proyecto.setFechaFin("11/06/2014");
 			proyecto.setEstado("P");
-			proyecto.setValor(505);
+			proyecto.setValor(505);*/
+			
+			//PRUEBA TABALA BENEFICIARIO
+		/*	
+		Beneficiario beneficiario = new Beneficiario();
+		beneficiario.setIdBeneficiario("cb31234");
+		beneficiario.setCarnetEmpleado("lilasoaso");
+		beneficiario.setNombreOrganizacion("GRUPO DIKARD");
+		beneficiario.setNombreRepresentante("Weseslao");
+		beneficiario.setApellidoRepresentante("Flores");
+		beneficiario.setTelefBeneficiario(74235411);
+		beneficiario.setDireccionBeneficiario("Por ahi cerquita");
+		beneficiario.setMail("mailmail");
 			
 			//Abriré la BD
 			BDControl db = new BDControl(getApplicationContext());
 			
 			//Ingreso datos
-			String registrosInsertados = db.insertar(proyecto);
+			String registrosInsertados = db.insertar(beneficiario);
 			
 			//Cerraré la BD
 			db.close();
 			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
+			*/
+			
+			//PRUEBA CON TIPO DE PROYECTO
+			
+			TipoDeProyecto tipoproyecto=new TipoDeProyecto();
+			tipoproyecto.setIdTipoProyecto("exraoficia");
+			tipoproyecto.setIdProyecto("asxc");
+			tipoproyecto.setModalidadProyecto("Pasantía");
+				
+				//Abriré la BD
+				BDControl db = new BDControl(getApplicationContext());
+				
+				//Ingreso datos
+				String registrosInsertados = db.insertar(tipoproyecto);
+				
+				//Cerraré la BD
+				db.close();
+				Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
+			
+			
 			
 			//Prueba con la tabla ALUMNOEXPEDIENTE
 		
-			AlumnoExpediente alumExpediente = new AlumnoExpediente();
+			/*AlumnoExpediente alumExpediente = new AlumnoExpediente();
 			alumExpediente.setApellido("Trujillo");
 			alumExpediente.setCarnet("PT11007");
 			alumExpediente.setCarnetEmpleado("PP11223");
@@ -117,7 +150,7 @@ public class ServicioSocialActivity extends ListActivity {
 			//Cerraré la BD
 			db.close();
 			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
-			
+			*/
 			//Prueba con la tabla ALUMNOEXPEDIENTE
 			
 //			AlumnoExpediente alumExpediente = new AlumnoExpediente();

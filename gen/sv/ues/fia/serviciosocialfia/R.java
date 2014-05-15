@@ -1086,10 +1086,19 @@ containing a value of this type.
         public static final int images=0x7f020059;
     }
     public static final class id {
-        public static final int CImgButtonInsertPrecio=0x7f050042;
-        public static final int CimgBtnModElimPrecio=0x7f050043;
+        public static final int CImgButtonInsertPrecio=0x7f05004b;
+        public static final int CbtnAprobar=0x7f050045;
+        public static final int CbtnReprobar=0x7f050044;
+        public static final int CimgBtnModElimPrecio=0x7f05004c;
+        public static final int ClblContenidoAlumno=0x7f050040;
+        public static final int ClblContenidoBeneficiario=0x7f050043;
         public static final int ClblContenidoNombreProyecto=0x7f05003d;
+        public static final int ClblTituloAlumno=0x7f05003f;
+        public static final int ClblTituloBeneficiario=0x7f050042;
+        public static final int ClblcontenidoModalidad=0x7f050041;
+        public static final int ClblmodalidadProyecto=0x7f05003e;
         public static final int CtextViewNombreProyecto=0x7f05003c;
+        public static final int CtextviewContenidoDescripcionProyecto=0x7f050046;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1101,19 +1110,19 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050047;
+        public static final int action_settings=0x7f05004f;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
-        public static final int container=0x7f050040;
+        public static final int container=0x7f05004a;
         public static final int default_activity_button=0x7f050028;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
         public static final int dropdown=0x7f05000f;
         public static final int edit_query=0x7f050030;
-        public static final int elija_rol=0x7f050046;
+        public static final int elija_rol=0x7f05004e;
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
@@ -1122,9 +1131,9 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int lblTituloAutorizarP=0x7f05003e;
+        public static final int lblTituloAutorizarP=0x7f050048;
         public static final int listMode=0x7f050001;
-        public static final int listProyectosPendientes=0x7f05003f;
+        public static final int listProyectosPendientes=0x7f050049;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
         public static final int never=0x7f050009;
@@ -1147,12 +1156,11 @@ containing a value of this type.
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
-        public static final int spinner1=0x7f050045;
+        public static final int spinner1=0x7f05004d;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView2=0x7f050041;
-        public static final int textView3=0x7f050044;
+        public static final int textView1=0x7f050047;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
@@ -1230,6 +1238,15 @@ containing a value of this type.
     public static final class string {
         public static final int CDescripcionProyecto=0x7f0a001c;
         public static final int CImbuttonInsertPrecio=0x7f0a001e;
+        public static final int CbtnAprobarProyecto=0x7f0a0023;
+        public static final int CbtnReprobarProyecto=0x7f0a0024;
+        public static final int ClblAlumno=0x7f0a0020;
+        public static final int ClblBeneficiario=0x7f0a0021;
+        public static final int ClblContenidoAlumno=0x7f0a0026;
+        public static final int ClblContenidoBeneficiario=0x7f0a0027;
+        public static final int ClblContenidoModalidadProyecto=0x7f0a0025;
+        public static final int ClblDescripcion=0x7f0a0028;
+        public static final int ClblModalidadProyecto=0x7f0a0022;
         public static final int ClblNombreProyecto=0x7f0a001b;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */

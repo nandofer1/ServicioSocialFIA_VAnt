@@ -15,8 +15,16 @@ public class BDControl extends SQLiteOpenHelper {
 			{"IDPROYECTO","IDBENEFICIARIO","CARNETEMPLEADO","IDEXPEDIENTE","IDTIPOPROYECTO", "NOMBREDEPROYECTO","DESCRIPCIONPROYECTO","DURACIONPROYECTO","FECHAINICIOPROY","FECHAFINPROY","ESTADOPROYECTO","VALORPROYECTO"};
 	
 //COSME
+	private static final String[]camposAlumnoExpediente = new String []
+			{"IDEXPEDIENTE","IDBITACORA","CARNETEMPLEADO","CODCARRERA","CARNETALUMNO", "NOMBREALUMNO","APELLIDOALUMNO","SEXOALUMNO","FECHAINICIOSERVICIO","FECHAFINSERVICIO","ESTADOALUMNO","TELEFONO","EMAIL","OBSERVACIONES","VALORSERVICIO","HORASACUMULA","FECHAACUMULA"};
 	
+	//COSME
+	private static final String[]camposBeneficiario = new String []
+			{"IDBENEFICIARIO","CARNETEMPLEADO","NOMBREORGANIZACION","NOMBREREPRESENTANTE","APELLIDOREPRESENTANTE", "TELEFONOBENEF","DIRECCIONBENEF","EMAIL"};
 	
+	//COSME
+		private static final String[]camposTipoProyecto = new String []
+				{"IDTIPOPROYECTO","IDPROYECTO","MODALIDADPROYECTO"};
 	
 	// Nombre de nuestro archivo de base de datos
 	private static final String NOMBRE_BD = "SSBD.s3db";
@@ -1042,6 +1050,123 @@ public class BDControl extends SQLiteOpenHelper {
 	// FIN FUNCIONES DE ACTUALIZACIÓN DE DATOS
 
 	
+	//CONSULTAR PROYECTO NORMAL COSME
+			public Proyecto ConsultarProyecto(String idproyecto){
+				//ABRIENDO LA BASE
+				SQLiteDatabase db = getWritableDatabase();
+				String[] idp = {idproyecto};
+				Cursor cursor = db.query("PROYECTO", camposProyecto, "IDPROYECTO = ?", idp,
+						null, null, null);
+				if(cursor.moveToFirst()){
+					Proyecto proyecto=new Proyecto();
+					proyecto.setIdProyecto(cursor.getString(0));
+					proyecto.setIdBeneficiario(cursor.getString(1));
+					proyecto.setCarnetEmpleado(cursor.getString(2));
+					proyecto.setIdExpediente(cursor.getString(3));
+					proyecto.setIdTipoProyecto(cursor.getString(4));
+					proyecto.setNombre(cursor.getString(5));
+					proyecto.setDescripcion(cursor.getString(6));
+					proyecto.setDuracion(cursor.getInt(7));
+					proyecto.setFechaInicio(cursor.getString(8));
+					proyecto.setFechaFin(cursor.getString(9));
+					proyecto.setEstado(cursor.getString(10));
+					proyecto.setValor(cursor.getFloat(11));
+					return proyecto;
+				}
+				else{
+					return null;
+				}
+			}
+			
+			
+			//COSME CONSULTAR TIPO DE PROYECTO
+			
+			public TipoDeProyecto ConsultarTipoProyecto(String idtipoproyecto){
+				//ABRIENDO LA BASE
+				SQLiteDatabase db = getWritableDatabase();
+				String[] idp = {idtipoproyecto};
+				Cursor cursor = db.query("TIPO_DE_PROYECTO", camposTipoProyecto, "IDTIPOPROYECTO = ?", idp,
+						null, null, null);
+				if(cursor.moveToFirst()){
+				TipoDeProyecto tipoproyecto=new TipoDeProyecto();
+				tipoproyecto.setIdTipoProyecto(cursor.getString(0));
+				tipoproyecto.setIdProyecto(cursor.getString(1));
+				tipoproyecto.setModalidadProyecto(cursor.getString(2));
+				
+					return tipoproyecto;
+				}
+				else{
+					return null;
+				}
+			}
+			
+			
+			
+			
+			
+				//CONSULTAR BENFICIARIO NORMAL COSME
+				public Beneficiario ConsultarBeneficiario(String idbeneficiario){
+					//ABRIENDO LA BASE
+					SQLiteDatabase db = getWritableDatabase();
+					String[] idb = {idbeneficiario};
+					Cursor cursor = db.query("BENEFICIARIO", camposBeneficiario, "IDBENEFICIARIO = ?", idb,
+							null, null, null);
+					if(cursor.moveToFirst()){
+						Beneficiario beneficiario=new Beneficiario();
+						beneficiario.setIdBeneficiario(cursor.getString(0));
+						beneficiario.setCarnetEmpleado(cursor.getString(1));
+						beneficiario.setNombreOrganizacion(cursor.getString(2));
+						beneficiario.setNombreRepresentante(cursor.getString(3));
+						beneficiario.setApellidoRepresentante(cursor.getString(4));
+						beneficiario.setTelefBeneficiario(cursor.getInt(5));
+						beneficiario.setDireccionBeneficiario(cursor.getString(6));
+						beneficiario.setMail(cursor.getString(7));
+						return beneficiario;
+					}
+					else{
+						return null;
+					}
+			
+				
+				
+			}
+	
+			//CONSULTAR EXPEDIENTE ALUMNO NORMAL COSME
+			public AlumnoExpediente ConsultarExpediente(String idexpediente){
+				//ABRIENDO LA BASE
+				SQLiteDatabase db = getWritableDatabase();
+				String[] ide = {idexpediente};
+				Cursor cursor = db.query("ALUMNOEXPEDIENTE", camposAlumnoExpediente, "IDEXPEDIENTE = ?", ide,
+						null, null, null);
+				if(cursor.moveToFirst()){
+					AlumnoExpediente alumno=new AlumnoExpediente();
+					alumno.setIdExpediente(cursor.getString(0));
+					alumno.setIdBitacora(cursor.getString(1));
+					alumno.setCarnetEmpleado(cursor.getString(2));
+					alumno.setCodCarrera(cursor.getString(3));
+					alumno.setCarnet(cursor.getString(4));
+					alumno.setNombre(cursor.getString(5));
+					alumno.setApellido(cursor.getString(6));
+					alumno.setSexo(cursor.getString(7));
+					alumno.setFechaInicioServicio(cursor.getString(8));
+					alumno.setFechaFinServicio(cursor.getString(9));
+					alumno.setEstado(cursor.getString(10));
+					alumno.setTelefono(cursor.getString(11));
+					alumno.setEmail(cursor.getString(12));
+					alumno.setObservaciones(cursor.getString(13));
+					alumno.setValorServicio(cursor.getFloat(14));
+					alumno.setHorasAcumula(cursor.getInt(15));
+					alumno.setFechaAcumula(cursor.getString(16));
+					
+					return alumno;
+				}
+				else{
+					return null;
+				}
+			
+				
+				
+			}
 	//COSME FUNCION CONSULTA DE PROYECTOS PENDIENTES DE APROBACION
 	
 	public Proyecto consultarProyecto(String estado, ArrayList<String> nombres, ArrayList<String> id){
@@ -1097,6 +1222,8 @@ public class BDControl extends SQLiteOpenHelper {
 		return null;
 		
 		}
+		
+		
 		
 		
 	}
