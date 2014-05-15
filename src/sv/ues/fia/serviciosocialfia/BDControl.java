@@ -1,6 +1,5 @@
 package sv.ues.fia.serviciosocialfia;
 
-
 import java.util.ArrayList;
 
 import android.content.ContentValues;
@@ -9,15 +8,17 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 public class BDControl extends SQLiteOpenHelper {
-//COSME
-	private static final String[]camposProyecto = new String []
-			{"IDPROYECTO","IDBENEFICIARIO","CARNETEMPLEADO","IDEXPEDIENTE","IDTIPOPROYECTO", "NOMBREDEPROYECTO","DESCRIPCIONPROYECTO","DURACIONPROYECTO","FECHAINICIOPROY","FECHAFINPROY","ESTADOPROYECTO","VALORPROYECTO"};
-	
-//COSME
-	
-	
-	
+	// COSME
+	private static final String[] camposProyecto = new String[] { "IDPROYECTO",
+			"IDBENEFICIARIO", "CARNETEMPLEADO", "IDEXPEDIENTE",
+			"IDTIPOPROYECTO", "NOMBREDEPROYECTO", "DESCRIPCIONPROYECTO",
+			"DURACIONPROYECTO", "FECHAINICIOPROY", "FECHAFINPROY",
+			"ESTADOPROYECTO", "VALORPROYECTO" };
+
+	// COSME
+
 	// Nombre de nuestro archivo de base de datos
 	private static final String NOMBRE_BD = "SSBD.s3db";
 
@@ -155,14 +156,14 @@ public class BDControl extends SQLiteOpenHelper {
 			+ "constraint PK_TIPO_DE_TRABAJO primary key (IDBITACORA, IDTIPODETRABAJO));";
 
 	// Tabla Tutor
-		private static final String TABLA_TUTOR = "create table TUTOR "
-				+ "(CODIGOTUTOR          CHAR(7)              not null,"
-				+ "IDBENEFICIARIO       CHAR(10)             not null,"
-				+ "NOMBRETUTOR          CHAR(30)             not null,"
-				+ "APELLIDOTUTOR        CHAR(30)             not null,"
-				+ "SEXOTUTOR            CHAR(1)              not null,"
-				+ "constraint PK_TUTOR primary key (CODIGOTUTOR));";
-			
+	private static final String TABLA_TUTOR = "create table TUTOR "
+			+ "(CODIGOTUTOR          CHAR(7)              not null,"
+			+ "IDBENEFICIARIO       CHAR(10)             not null,"
+			+ "NOMBRETUTOR          CHAR(30)             not null,"
+			+ "APELLIDOTUTOR        CHAR(30)             not null,"
+			+ "SEXOTUTOR            CHAR(1)              not null,"
+			+ "constraint PK_TUTOR primary key (CODIGOTUTOR));";
+
 	// FIN DE TABLAS DE LA BASE DE DATOS
 
 	// Constructor
@@ -172,27 +173,27 @@ public class BDControl extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		
+
 		// Creación de las tablas
-		
-		//COSME SE AGREGO UN CATCH
-		try{
-		db.execSQL(TABLA_ALUMNO_EXPEDIENTE);
-		db.execSQL(TABLA_BENEFICIARIO);
-		db.execSQL(TABLA_BITACORA);
-		db.execSQL(TABLA_CARRERAS);
-		db.execSQL(TABLA_DIRECTORSS);
-		db.execSQL(TABLA_ESCUELA);
-		db.execSQL(TABLA_INFORME);
-		db.execSQL(TABLA_PRECIOS);
-		db.execSQL(TABLA_PROYECTO);
-		db.execSQL(TABLA_TIPO_DE_PROYECTO);
-		db.execSQL(TABLA_TIPO_DE_TRABAJO);
-		db.execSQL(TABLA_TUTOR);
-		
-		}catch(SQLException e){
+
+		// COSME SE AGREGO UN CATCH
+		try {
+			db.execSQL(TABLA_ALUMNO_EXPEDIENTE);
+			db.execSQL(TABLA_BENEFICIARIO);
+			db.execSQL(TABLA_BITACORA);
+			db.execSQL(TABLA_CARRERAS);
+			db.execSQL(TABLA_DIRECTORSS);
+			db.execSQL(TABLA_ESCUELA);
+			db.execSQL(TABLA_INFORME);
+			db.execSQL(TABLA_PRECIOS);
+			db.execSQL(TABLA_PROYECTO);
+			db.execSQL(TABLA_TIPO_DE_PROYECTO);
+			db.execSQL(TABLA_TIPO_DE_TRABAJO);
+			db.execSQL(TABLA_TUTOR);
+
+		} catch (SQLException e) {
 			e.printStackTrace();
-			}
+		}
 
 	}
 
@@ -1041,18 +1042,18 @@ public class BDControl extends SQLiteOpenHelper {
 
 	// FIN FUNCIONES DE ACTUALIZACIÓN DE DATOS
 
-	
-	//COSME FUNCION CONSULTA DE PROYECTOS PENDIENTES DE APROBACION
-	
-	public Proyecto consultarProyecto(String estado, ArrayList<String> nombres, ArrayList<String> id){
-		//ABRIENDO LA BASE
+	// COSME FUNCION CONSULTA DE PROYECTOS PENDIENTES DE APROBACION
+
+	public Proyecto consultarProyecto(String estado, ArrayList<String> nombres,
+			ArrayList<String> id) {
+		// ABRIENDO LA BASE
 		SQLiteDatabase db = getWritableDatabase();
-		String[] estad = {estado};
-		Cursor cursor = db.query("PROYECTO", camposProyecto, "ESTADOPROYECTO = ?", estad,
-		null, null, null);
-		if(cursor.moveToFirst()){
+		String[] estad = { estado };
+		Cursor cursor = db.query("PROYECTO", camposProyecto,
+				"ESTADOPROYECTO = ?", estad, null, null, null);
+		if (cursor.moveToFirst()) {
 			Proyecto proyecto = new Proyecto();
-			//AGARRO EL PRIMERO VALOR 
+			// AGARRO EL PRIMERO VALOR
 			proyecto.setIdProyecto(cursor.getString(0));
 			proyecto.setIdBeneficiario(cursor.getString(1));
 			proyecto.setCarnetEmpleado(cursor.getString(2));
@@ -1067,48 +1068,117 @@ public class BDControl extends SQLiteOpenHelper {
 			proyecto.setValor(cursor.getFloat(11));
 			id.add(proyecto.getIdProyecto().toString());
 			nombres.add(proyecto.getNombre().toString());
-			
-			
-			//TOMO LOS VALORES DESDE EL 2DO EN ADELANTE
-			while(cursor.moveToNext()){
 
-		proyecto.setIdProyecto(cursor.getString(0));
-		proyecto.setIdBeneficiario(cursor.getString(1));
-		proyecto.setCarnetEmpleado(cursor.getString(2));
-		proyecto.setIdExpediente(cursor.getString(3));
-		proyecto.setIdTipoProyecto(cursor.getString(4));
-		proyecto.setNombre(cursor.getString(5));
-		proyecto.setDescripcion(cursor.getString(6));
-		proyecto.setDuracion(cursor.getInt(7));
-		proyecto.setFechaInicio(cursor.getString(8));
-		proyecto.setFechaFin(cursor.getString(9));
-		proyecto.setEstado(cursor.getString(10));
-		proyecto.setValor(cursor.getFloat(11));
-		id.add(proyecto.getIdProyecto().toString());
-		nombres.add(proyecto.getNombre().toString());
-		
-		
+			// TOMO LOS VALORES DESDE EL 2DO EN ADELANTE
+			while (cursor.moveToNext()) {
+
+				proyecto.setIdProyecto(cursor.getString(0));
+				proyecto.setIdBeneficiario(cursor.getString(1));
+				proyecto.setCarnetEmpleado(cursor.getString(2));
+				proyecto.setIdExpediente(cursor.getString(3));
+				proyecto.setIdTipoProyecto(cursor.getString(4));
+				proyecto.setNombre(cursor.getString(5));
+				proyecto.setDescripcion(cursor.getString(6));
+				proyecto.setDuracion(cursor.getInt(7));
+				proyecto.setFechaInicio(cursor.getString(8));
+				proyecto.setFechaFin(cursor.getString(9));
+				proyecto.setEstado(cursor.getString(10));
+				proyecto.setValor(cursor.getFloat(11));
+				id.add(proyecto.getIdProyecto().toString());
+				nombres.add(proyecto.getNombre().toString());
+
 			}
 			return proyecto;
-			
-			
-			
-		}else{
-		return null;
-		
+
+		} else {
+			return null;
+
 		}
-		
-		
+
 	}
-	
-	
+
 	// FUNCIONES DE ELIMINACIÓN DE DATOS
 	public String eliminar(AlumnoExpediente alumExp) {
-		return null;
+		// Abriendo la base de datos
+		SQLiteDatabase db = getWritableDatabase();
+
+		// Variables para controlar los registros insertados
+		long contador = 0;
+		String registrosAfectados = "Filas afectadas = ";
+
+		if (db != null) {
+			ContentValues valores = new ContentValues();
+			String where = "IDEXPEDIENTE = '"+ alumExp.getIdExpediente() + "'";
+			where = where + "AND IDBITACORA = '"+ alumExp.getIdBitacora() +"'";
+			where = where +	"AND CARNETEMPLEADO = '" + alumExp.getCarnetEmpleado() + "'";
+			where = where + "AND CODCARRERA ='" + alumExp.getCodCarrera() + "'";
+			
+			valores.put("CARNETALUMNO", alumExp.getCarnet());
+			valores.put("NOMBREALUMNO", alumExp.getNombre());
+			valores.put("APELLIDOALUMNO", alumExp.getApellido());
+			valores.put("SEXOALUMNO", alumExp.getSexo());
+			valores.put("FECHAINICIOSERVICIO", alumExp.getFechaInicioServicio());
+			valores.put("FECHAFINSERVICIO", alumExp.getFechaFinServicio());
+			valores.put("ESTADOALUMNO", alumExp.getEstado());
+			valores.put("TELEFONO", alumExp.getTelefono());
+			valores.put("EMAIL", alumExp.getEmail());
+			valores.put("OBSERVACIONES", alumExp.getObservaciones());
+			valores.put("VALORSERVICIO", alumExp.getValorServicio());
+			valores.put("HORASACUMULA", alumExp.getHorasAcumula());
+			valores.put("FECHAACUMULA", alumExp.getFechaAcumula());
+			contador = db.delete("ALUMNOEXPEDIENTE", where, null);
+
+			// Cerrando base de datos
+			db.close();
+
+			if (contador == -1 || contador == 0) {
+				registrosAfectados = "Error al eliminar el registro. Registro"
+						+ "Inexistente. Verificar eliminación";
+			} else {
+				registrosAfectados = registrosAfectados + contador;
+			}
+			return registrosAfectados;
+		}
+		return "La Base de Datos no existe";
 	}
 
 	public String eliminar(Beneficiario beneficiario) {
-		return null;
+		// Abriendo la base de datos
+		SQLiteDatabase db = getWritableDatabase();
+
+		// Variables para controlar los registros insertados
+		long contador = 0;
+		String registrosAfectados = "Filas afectadas = ";
+
+		if (db != null) {
+			ContentValues valores = new ContentValues();
+			String where = "IDBENEFICIARIO =  '"+ beneficiario.getIdBeneficiario() + "'";
+			where = where + "AND CARNETEMPLEADO = '"+ beneficiario.getCarnetEmpleado() +"'";
+		
+			valores.put("NOMBREORGANIZACION",
+					beneficiario.getNombreOrganizacion());
+			valores.put("NOMBREREPRESENTANTE",
+					beneficiario.getNombreRepresentante());
+			valores.put("APELLIDOREPRESENTANTE",
+					beneficiario.getApellidoRepresentante());
+			valores.put("TELEFONOBENEF", beneficiario.getTelefBeneficiario());
+			valores.put("DIRECCIONBENEF",
+					beneficiario.getDireccionBeneficiario());
+			valores.put("EMAIL", beneficiario.getMail());
+			contador = db.delete("BENEFICIARIO", where, null);
+
+			// Cerrando base de datos
+			db.close();
+
+			if (contador == -1 || contador == 0) {
+				registrosAfectados = "Error al eliminar el registro. Registro"
+						+ "Inexistente. Verificar eliminación";
+			} else {
+				registrosAfectados = registrosAfectados + contador;
+			}
+			return registrosAfectados;
+		}
+		return "La Base de Datos no existe";
 	}
 
 	public String eliminar(Bitacora bitacora) {
@@ -1151,8 +1221,5 @@ public class BDControl extends SQLiteOpenHelper {
 		return null;
 	}
 	// FIN FUNCIONES DE ELIMINACIÓN DE DATOS
-	
-	
-	
 
 }
