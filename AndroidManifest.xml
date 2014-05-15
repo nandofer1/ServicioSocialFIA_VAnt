@@ -38,6 +38,14 @@
             android:name="sv.ues.fia.serviciosocialfia.AprobarReprobarProyecto"
             android:label="@string/title_activity_aprobar_reprobar_proyecto" >
         </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.InsertarPrecioActividad"
+            android:label="@string/title_activity_insertar_precio_actividad" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.ModElimPreciosActividad"
+            android:label="@string/title_activity_mod_elim_precios_actividad" >
+        </activity>
     </application>
 
 </manifest>

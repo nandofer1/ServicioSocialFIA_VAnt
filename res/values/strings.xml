@@ -17,5 +17,8 @@
     <string name="title_activity_aprobar_reprobar_proyecto">AprobarReprobarProyecto</string>
     <string name="ClblNombreProyecto">Nombre:</string>
     <string name="CDescripcionProyecto">Descripcion</string>
+    <string name="title_activity_insertar_precio_actividad">InsertarPrecioActividad</string>
+    <string name="CImbuttonInsertPrecio" />
+    <string name="title_activity_mod_elim_precios_actividad">ModElimPreciosActividad</string>
 
 </resources>

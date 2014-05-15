@@ -237,6 +237,8 @@ int drawable abc_textfield_searchview_right_holo_light 0x7f020056
 int drawable consultarprecio 0x7f020057
 int drawable ic_launcher 0x7f020058
 int drawable images 0x7f020059
+int id CImgButtonInsertPrecio 0x7f050042
+int id CimgBtnModElimPrecio 0x7f050043
 int id ClblContenidoNombreProyecto 0x7f05003d
 int id CtextViewNombreProyecto 0x7f05003c
 int id action_bar 0x7f05001c
@@ -250,7 +252,7 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f050046
+int id action_settings 0x7f050047
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
@@ -262,7 +264,7 @@ int id dialog 0x7f05000e
 int id disableHome 0x7f050008
 int id dropdown 0x7f05000f
 int id edit_query 0x7f050030
-int id elija_rol 0x7f050045
+int id elija_rol 0x7f050046
 int id end 0x7f050013
 int id expand_activities_button 0x7f050026
 int id expanded_menu 0x7f05002c
@@ -271,8 +273,6 @@ int id homeAsUp 0x7f050005
 int id icon 0x7f05002a
 int id ifRoom 0x7f05000a
 int id image 0x7f050027
-int id imageButton1 0x7f050042
-int id imageButton2 0x7f050043
 int id lblTituloAutorizarP 0x7f05003e
 int id listMode 0x7f050001
 int id listProyectosPendientes 0x7f05003f
@@ -298,6 +298,7 @@ int id shortcut 0x7f05002e
 int id showCustom 0x7f050007
 int id showHome 0x7f050004
 int id showTitle 0x7f050006
+int id spinner1 0x7f050045
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
@@ -337,14 +338,19 @@ int layout activity_aprobar_reprobar_proyecto 0x7f030018
 int layout activity_autorizar_proyectos 0x7f030019
 int layout activity_bdcontrol 0x7f03001a
 int layout activity_gestion_precios 0x7f03001b
-int layout activity_servicio_social 0x7f03001c
-int layout support_simple_spinner_dropdown_item 0x7f03001d
+int layout activity_insertar_precio_actividad 0x7f03001c
+int layout activity_mod_elim_precios_actividad 0x7f03001d
+int layout activity_servicio_social 0x7f03001e
+int layout support_simple_spinner_dropdown_item 0x7f03001f
 int menu aprobar_reprobar_proyecto 0x7f0c0000
 int menu autorizar_proyectos 0x7f0c0001
 int menu bdcontrol 0x7f0c0002
 int menu gestion_precios 0x7f0c0003
-int menu servicio_social 0x7f0c0004
+int menu insertar_precio_actividad 0x7f0c0004
+int menu mod_elim_precios_actividad 0x7f0c0005
+int menu servicio_social 0x7f0c0006
 int string CDescripcionProyecto 0x7f0a001c
+int string CImbuttonInsertPrecio 0x7f0a001e
 int string ClblNombreProyecto 0x7f0a001b
 int string abc_action_bar_home_description 0x7f0a0001
 int string abc_action_bar_up_description 0x7f0a0002
@@ -373,6 +379,8 @@ int string title_activity_aprobar_reprobar_proyecto 0x7f0a001a
 int string title_activity_autorizar_proyectos 0x7f0a0018
 int string title_activity_bdcontrol 0x7f0a0010
 int string title_activity_gestion_precios 0x7f0a0012
+int string title_activity_insertar_precio_actividad 0x7f0a001d
+int string title_activity_mod_elim_precios_actividad 0x7f0a001f
 int style AppBaseTheme 0x7f0b008b
 int style AppTheme 0x7f0b008c
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063
