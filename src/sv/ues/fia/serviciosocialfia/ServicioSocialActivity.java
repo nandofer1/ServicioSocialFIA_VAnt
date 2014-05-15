@@ -88,9 +88,33 @@ public class ServicioSocialActivity extends ListActivity {
 			db.close();
 			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
 			
-			//Prueba con la tabla ALUMNOEXPEDIENTE
+			//Prueba con la tabla ALUMNOEXPEDIENTE (INSERTAR)
 		
 			AlumnoExpediente alumExpediente = new AlumnoExpediente();
+			alumExpediente.setApellido("Trujillo");
+			alumExpediente.setCarnet("RR77880");
+			alumExpediente.setCarnetEmpleado("TT11223");
+			alumExpediente.setCodCarrera("CA77");
+			alumExpediente.setEmail("mail@mail.com");
+			alumExpediente.setEstado("Programando");
+			alumExpediente.setFechaAcumula("fecha");
+			alumExpediente.setFechaFinServicio("fechaFin");
+			alumExpediente.setFechaInicioServicio("fechaIni");
+			alumExpediente.setHorasAcumula(20);
+			alumExpediente.setIdBitacora("AAAAA");
+			alumExpediente.setIdExpediente("LOL");
+			alumExpediente.setNombre("nombre");
+			alumExpediente.setObservaciones("observ");
+			alumExpediente.setSexo("M");
+			alumExpediente.setTelefono("000000");
+			alumExpediente.setValorServicio(120);
+			
+			//Abriré la BD
+			db = new BDControl(getApplicationContext());
+			//Ingreso datos
+			registrosInsertados = db.insertar(alumExpediente);
+			
+			//Insertando un segundo registro
 			alumExpediente.setApellido("Trujillo");
 			alumExpediente.setCarnet("PT11007");
 			alumExpediente.setCarnetEmpleado("PP11223");
@@ -109,16 +133,13 @@ public class ServicioSocialActivity extends ListActivity {
 			alumExpediente.setTelefono("000000");
 			alumExpediente.setValorServicio(120);
 			
-			//Abriré la BD
-			db = new BDControl(getApplicationContext());
-			//Ingreso datos
 			registrosInsertados = db.insertar(alumExpediente);
 			
 			//Cerraré la BD
 			db.close();
-			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
+			Toast.makeText(this,registrosInsertados,Toast.LENGTH_SHORT).show();
 			
-			//Prueba con la tabla ALUMNOEXPEDIENTE
+			//Prueba con la tabla ALUMNOEXPEDIENTE (ACTUALIZAR)
 			
 //			AlumnoExpediente alumExpediente = new AlumnoExpediente();
 //			alumExpediente.setApellido("Pleitez Trujillo");
@@ -146,10 +167,38 @@ public class ServicioSocialActivity extends ListActivity {
 //			
 //			//Cerraré la BD
 //			db.close();
-//			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();		
+//			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
+			
+			//Prueba con la tabla ALUMNOEXPEDIENTE (ELIMINAR)
+			
+			//alumExpediente = new AlumnoExpediente();
+			alumExpediente.setApellido("Trujillo");
+			alumExpediente.setCarnet("PT11007");
+			alumExpediente.setCarnetEmpleado("PP11223");
+			alumExpediente.setCodCarrera("car44");
+			alumExpediente.setEmail("mail@mail.com");
+			alumExpediente.setEstado("Programando");
+			alumExpediente.setFechaAcumula("fecha");
+			alumExpediente.setFechaFinServicio("fechaFin");
+			alumExpediente.setFechaInicioServicio("fechaIni");
+			alumExpediente.setHorasAcumula(20);
+			alumExpediente.setIdBitacora("aaaa");
+			alumExpediente.setIdExpediente("expdff");
+			alumExpediente.setNombre("nombre");
+			alumExpediente.setObservaciones("observ");
+			alumExpediente.setSexo("M");
+			alumExpediente.setTelefono("000000");
+			alumExpediente.setValorServicio(120);
+			
+			//Abriré la BD
+			db = new BDControl(getApplicationContext());
+			//Ingreso datos
+			String registrosEliminados = db.eliminar(alumExpediente);
+			
+			//Cerraré la BD
+			db.close();
+			Toast.makeText(this,registrosEliminados,Toast.LENGTH_SHORT).show();
 		}
 	}
-	
-	
 
 }
