@@ -2,7 +2,6 @@ package sv.ues.fia.serviciosocialfia;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.view.Menu;
 import android.widget.TextView;
 
