@@ -76,7 +76,8 @@ BDControl	helper;
                   //Abrimos el activity donde se mostrara el proyecto seleccionado
                     Intent AbrirActAproReproP = new Intent(AutorizarProyectos.this, AprobarReprobarProyecto.class);
                     startActivity(AbrirActAproReproP );
-                   
+                  //Cerramos este activity
+                    finish();
                     
                 
                   }

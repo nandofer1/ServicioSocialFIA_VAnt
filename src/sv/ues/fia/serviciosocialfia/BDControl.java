@@ -927,7 +927,7 @@ public class BDControl extends SQLiteOpenHelper {
 			String[] id = { proyecto.getIdProyecto(),
 					proyecto.getIdBeneficiario(), proyecto.getCarnetEmpleado(),
 					proyecto.getIdExpediente(), proyecto.getIdTipoProyecto() };
-			valores.put("NOMBREPROYECTO", proyecto.getNombre());
+			valores.put("NOMBREDEPROYECTO", proyecto.getNombre());
 			valores.put("DESCRIPCIONPROYECTO", proyecto.getDescripcion());
 			valores.put("DURACIONPROYECTO", proyecto.getDuracion());
 			valores.put("FECHAINICIOPROY", proyecto.getFechaInicio());
@@ -953,6 +953,12 @@ public class BDControl extends SQLiteOpenHelper {
 		}
 		return "La Base de Datos no existe";
 	}
+	
+	
+	
+	
+
+	
 
 	public String actualizar(TipoDeProyecto tipoDeProyecto) {
 		// Abriendo la base de datos

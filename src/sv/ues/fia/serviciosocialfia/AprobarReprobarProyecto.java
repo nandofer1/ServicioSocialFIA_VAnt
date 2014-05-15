@@ -33,13 +33,19 @@ public static String idproyecto;
 		Modalidad=(TextView)findViewById(R.id.ClblcontenidoModalidad);
 		Alumno=(TextView)findViewById(R.id.ClblContenidoAlumno);
 		Beneficiario=(TextView)findViewById(R.id.ClblContenidoBeneficiario);
+		btnAprobar=(Button)findViewById(R.id.CbtnAprobar);
+		btnReprobar=(Button)findViewById(R.id.CbtnReprobar);
 		//NombreProyecto.setText(idproyecto);
 		CargarDatos(idproyecto);
 		
 		
+	
 		
-		/*//LISTENER BOTON APROBAR
 		
+		//LISTENER BOTON APROBAR
+		
+		 
+		 
 		 btnAprobar.setOnClickListener (new OnClickListener () {  
             @ Override  
             
@@ -47,10 +53,7 @@ public static String idproyecto;
            	 //lo que hara el boton al presionarlo
            	 
             	
-            	//Aprobar();
-            	
-            	
-            	
+            	        Aprobar();    	
             	
                               
             }  
@@ -62,11 +65,11 @@ public static String idproyecto;
             public void onClick (View v) {  
            	 //lo que hara el boton al presionarlo
            	 
-            	
+            	Reprobar();
                               
             }  
-       }); */ 
-	}
+       }); 
+	}//FINAL ON CREATE
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,8 +80,9 @@ public static String idproyecto;
 	
 	
 	//PONER VALORES A LOS TEXTVIEW
+	 BDControl helper=new BDControl(this);
 	public void CargarDatos(String idproyecto){
-		BDControl helper=new BDControl(this);
+		//BDControl helper=new BDControl(this);
 		Proyecto P=new Proyecto();
 		AlumnoExpediente A=new AlumnoExpediente();
 	//	TipoDeProyecto T=new TipoDeProyecto();
@@ -92,11 +96,14 @@ public static String idproyecto;
 		Alumno.setText(A.getNombre()+"  "+A.getApellido());
 		Beneficiario.setText(B.getNombreOrganizacion());
 		//Modalidad.setText(T.getModalidadProyecto());
+		
+		
 	}
 	
 	
 	//APROBAR PROYECTO
-	/*public void Aprobar()
+	
+	public void Aprobar()
 	{
 		 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);  
          dialogo1.setTitle("Importante");  
@@ -105,6 +112,17 @@ public static String idproyecto;
          dialogo1.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {  
              public void onClick(DialogInterface dialogo1, int id) {  
                  // SI ACEPTAMOS  
+            	
+            	 Proyecto PROYECTO=new Proyecto();
+            	 PROYECTO=helper.ConsultarProyecto(idproyecto);
+            	 PROYECTO.setEstado("A");
+            	 helper.actualizar(PROYECTO);
+            	 Intent AprobarProyectos = new Intent(AprobarReprobarProyecto.this, AutorizarProyectos.class);
+                 startActivity(AprobarProyectos );
+            	//Cerramos este activity
+                 
+                 finish();
+            	 
              }  
          });  
          dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {  
@@ -115,6 +133,40 @@ public static String idproyecto;
          dialogo1.show(); 
 		
 		
-	}*/
+	}
 
+	//REPROBAR PROYECTO
+		public void Reprobar()
+		{
+			 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);  
+	         dialogo1.setTitle("Importante");  
+	         dialogo1.setMessage("¿ Esta Seguro que desea Reprobar ester Proyecto?");            
+	         dialogo1.setCancelable(false);  
+	         dialogo1.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {  
+	             public void onClick(DialogInterface dialogo1, int id) {  
+	                 // SI ACEPTAMOS  HACEMOS EL UPDATE DLE CAMPO ESTADO
+	                 Proyecto P=new Proyecto();
+	            	 P=helper.ConsultarProyecto(idproyecto);
+	            	 P.setEstado("R");
+	            	 helper.actualizar(P);
+	            	 Intent AprobarProyectos = new Intent(AprobarReprobarProyecto.this, AutorizarProyectos.class);
+	                 startActivity(AprobarProyectos );
+	            	//Cerramos este activity
+	                 
+	                 finish();
+	            	
+	             }  
+	         });  
+	         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {  
+	             public void onClick(DialogInterface dialogo1, int id) {  
+	                 //SI CANCELAMOS
+	             }  
+	         });            
+	         dialogo1.show(); 
+			
+			
+		}
+
+	
+	
 }
