@@ -51,44 +51,14 @@ public class ServicioSocialActivity extends ListActivity {
 			db.close();
 			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
 			
-//			//Prueba con la tabla ALUMNOEXPEDIENTE
-//			
-//			AlumnoExpediente alumExpediente = new AlumnoExpediente();
-//			alumExpediente.setApellido("Trujillo");
-//			alumExpediente.setCarnet("PT11007");
-//			alumExpediente.setCarnetEmpleado("PP11223");
-//			alumExpediente.setCodCarrera("car44");
-//			alumExpediente.setEmail("mail@mail.com");
-//			alumExpediente.setEstado("Programando");
-//			alumExpediente.setFechaAcumula("fecha");
-//			alumExpediente.setFechaFinServicio("fechaFin");
-//			alumExpediente.setFechaInicioServicio("fechaIni");
-//			alumExpediente.setHorasAcumula(20);
-//			alumExpediente.setIdBitacora("aaaa");
-//			alumExpediente.setIdExpediente("expdff");
-//			alumExpediente.setNombre("nombre");
-//			alumExpediente.setObservaciones("observ");
-//			alumExpediente.setSexo("M");
-//			alumExpediente.setTelefono("000000");
-//			alumExpediente.setValorServicio(120);
-//			
-//			//Abriré la BD
-//			db = new BDControl(getApplicationContext());
-//			//Ingreso datos
-//			registrosInsertados = db.insertar(alumExpediente);
-//			
-//			//Cerraré la BD
-//			db.close();
-//			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
-			
 			//Prueba con la tabla ALUMNOEXPEDIENTE
 			
 			AlumnoExpediente alumExpediente = new AlumnoExpediente();
-			alumExpediente.setApellido("Pleitez Trujillo");
+			alumExpediente.setApellido("Trujillo");
 			alumExpediente.setCarnet("PT11007");
 			alumExpediente.setCarnetEmpleado("PP11223");
 			alumExpediente.setCodCarrera("car44");
-			alumExpediente.setEmail("racsoraul@mail.com");
+			alumExpediente.setEmail("mail@mail.com");
 			alumExpediente.setEstado("Programando");
 			alumExpediente.setFechaAcumula("fecha");
 			alumExpediente.setFechaFinServicio("fechaFin");
@@ -96,7 +66,7 @@ public class ServicioSocialActivity extends ListActivity {
 			alumExpediente.setHorasAcumula(20);
 			alumExpediente.setIdBitacora("aaaa");
 			alumExpediente.setIdExpediente("expdff");
-			alumExpediente.setNombre("Oscar Raul");
+			alumExpediente.setNombre("nombre");
 			alumExpediente.setObservaciones("observ");
 			alumExpediente.setSexo("M");
 			alumExpediente.setTelefono("000000");
@@ -105,11 +75,41 @@ public class ServicioSocialActivity extends ListActivity {
 			//Abriré la BD
 			db = new BDControl(getApplicationContext());
 			//Ingreso datos
-			registrosInsertados = db.actualizar(alumExpediente);
+			registrosInsertados = db.insertar(alumExpediente);
 			
 			//Cerraré la BD
 			db.close();
 			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
+			
+			//Prueba con la tabla ALUMNOEXPEDIENTE
+			
+//			AlumnoExpediente alumExpediente = new AlumnoExpediente();
+//			alumExpediente.setApellido("Pleitez Trujillo");
+//			alumExpediente.setCarnet("PT11007");
+//			alumExpediente.setCarnetEmpleado("PP11223");
+//			alumExpediente.setCodCarrera("car44");
+//			alumExpediente.setEmail("racsoraul@mail.com");
+//			alumExpediente.setEstado("Programando");
+//			alumExpediente.setFechaAcumula("fecha");
+//			alumExpediente.setFechaFinServicio("fechaFin");
+//			alumExpediente.setFechaInicioServicio("fechaIni");
+//			alumExpediente.setHorasAcumula(20);
+//			alumExpediente.setIdBitacora("aaaa");
+//			alumExpediente.setIdExpediente("expdff");
+//			alumExpediente.setNombre("Oscar Raul");
+//			alumExpediente.setObservaciones("observ");
+//			alumExpediente.setSexo("M");
+//			alumExpediente.setTelefono("000000");
+//			alumExpediente.setValorServicio(120);
+//			
+//			//Abriré la BD
+//			db = new BDControl(getApplicationContext());
+//			//Ingreso datos
+//			registrosInsertados = db.actualizar(alumExpediente);
+//			
+//			//Cerraré la BD
+//			db.close();
+//			Toast.makeText(this,registrosInsertados,Toast.LENGTH_LONG).show();
 			
 			
 		}
