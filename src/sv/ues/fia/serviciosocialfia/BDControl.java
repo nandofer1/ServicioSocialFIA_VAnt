@@ -573,7 +573,7 @@ public class BDControl extends SQLiteOpenHelper {
 		if (db != null) {
 			ContentValues valores = new ContentValues();
 			valores.put("IDBITACORA", tipoDeTrabajo.getIdBitacora());
-			valores.put("IDTIPOTRABAJO", tipoDeTrabajo.getIdTipoTrabajo());
+			valores.put("IDTIPODETRABAJO", tipoDeTrabajo.getIdTipoTrabajo());
 			valores.put("CORR", tipoDeTrabajo.getCorrelativo());
 			valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
 			contador = db.insert("TIPO_DE_TRABAJO", null, valores);
