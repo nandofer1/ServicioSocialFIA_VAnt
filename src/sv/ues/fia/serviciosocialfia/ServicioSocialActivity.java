@@ -13,7 +13,6 @@ import android.widget.Toast;
 public class ServicioSocialActivity extends ListActivity {
 	
 	String[] roles = {"Estudiante", "Tutor","Director","LlenarBD(Para pruebas)"};
-	String[] activities = {};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,27 +31,30 @@ public class ServicioSocialActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		
+		//Abrir las opciones de menú para el rol de "Director"
+				if(position == 2){
+					Intent intent = new Intent(this, DirectorMenuActivity.class);
+					startActivity(intent);
+				}
+		
 		//PRUEBAS COSME
 		
-		if(position==0)
-		{
-			Intent act = new Intent(this, AutorizarProyectos.class);
-			 
-			 startActivity(act);
-			
-		}
-		if(position==2)
-		{
-			Intent act = new Intent(this, GestionPrecios.class);
-			 
-			 startActivity(act);
-			
-		}
+//		if(position==0)
+//		{
+//			Intent act = new Intent(this, AutorizarProyectos.class);
+//			 
+//			 startActivity(act);
+//			
+//		}
+//		if(position==2)
+//		{
+//			Intent act = new Intent(this, GestionPrecios.class);
+//			 
+//			 startActivity(act);
+//			
+//		}
 		
 		
-		//PRUEBA COSME PROYECTO
-		
-
 		
 		//Código provisional para llenar la BD y hacer pruebas
 		if(position == 3){
