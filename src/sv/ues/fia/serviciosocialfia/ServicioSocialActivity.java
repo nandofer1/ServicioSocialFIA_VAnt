@@ -39,6 +39,17 @@ public class ServicioSocialActivity extends ListActivity {
 			 
 			 startActivity(act);
 			
+			 
+		}
+		
+		
+		if(position==1)
+		{
+			Intent act = new Intent(this, InsertarTipoDeTrabajoActivity.class);
+			 
+			 startActivity(act);
+			
+			 
 		}
 		if(position==2)
 		{

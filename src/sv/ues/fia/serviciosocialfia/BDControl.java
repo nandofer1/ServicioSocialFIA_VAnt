@@ -25,6 +25,11 @@ public class BDControl extends SQLiteOpenHelper {
 	//COSME
 		private static final String[]camposTipoProyecto = new String []
 				{"IDTIPOPROYECTO","IDPROYECTO","MODALIDADPROYECTO"};
+		
+		
+		//COSME
+				private static final String[]camposTipoTrabajo = new String []
+						{"IDTIPODETRABAJO","NOMBRETIPO"};
 	
 	// Nombre de nuestro archivo de base de datos
 	private static final String NOMBRE_BD = "SSBD.s3db";
@@ -158,7 +163,7 @@ public class BDControl extends SQLiteOpenHelper {
 	private static final String TABLA_TIPO_DE_TRABAJO = "create table TIPO_DE_TRABAJO "
 			//+ "(IDBITACORA           CHAR(10)             not null,"
 			+ "(IDTIPODETRABAJO      CHAR(10)             not null,"
-			+ "CORR                 CHAR(2),"
+			//+ "CORR                 CHAR(2),"
 			+ "NOMBRETIPO           CHAR(30)             not null,"
 			+ "constraint PK_TIPO_DE_TRABAJO primary key (IDTIPODETRABAJO));";
 
@@ -578,9 +583,9 @@ public class BDControl extends SQLiteOpenHelper {
 
 		if (db != null) {
 			ContentValues valores = new ContentValues();
-			valores.put("IDBITACORA", tipoDeTrabajo.getIdBitacora());
-			valores.put("IDTIPOTRABAJO", tipoDeTrabajo.getIdTipoTrabajo());
-			valores.put("CORR", tipoDeTrabajo.getCorrelativo());
+			//valores.put("IDBITACORA", tipoDeTrabajo.getIdBitacora());
+			valores.put("IDTIPODETRABAJO", tipoDeTrabajo.getIdTipoTrabajo());
+			//valores.put("CORR", tipoDeTrabajo.getCorrelativo());
 			valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
 			contador = db.insert("TIPO_DE_TRABAJO", null, valores);
 
@@ -1000,12 +1005,12 @@ public class BDControl extends SQLiteOpenHelper {
 
 		if (db != null) {
 			ContentValues valores = new ContentValues();
-			String[] id = { tipoDeTrabajo.getIdBitacora(),
+			String[] id = {
 					tipoDeTrabajo.getIdTipoTrabajo() };
-			valores.put("CORR", tipoDeTrabajo.getCorrelativo());
+			//valores.put("CORR", tipoDeTrabajo.getCorrelativo());
 			valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
 			contador = db.update("TIPODETRABAJO", valores,
-					"IDBITACORA = ? AND IDTIPODETRABAJO = ?", id);
+					"IDTIPODETRABAJO = ?", id);
 
 			// Cerrando base de datos
 			db.close();
@@ -1232,6 +1237,62 @@ public class BDControl extends SQLiteOpenHelper {
 		
 		
 	}
+	
+	
+	
+	//COSME FUNCION CONSULTA DE tipo de trabajo Para llenar Combobox
+	
+		public TipoDeTrabajo consultarTipoTrabajo( ArrayList<String> Tipo, ArrayList<String> idtipo){
+			//ABRIENDO LA BASE
+			SQLiteDatabase db = getWritableDatabase();
+			/*String[] estad = {estado};
+			Cursor cursor = db.query("PROYECTO", camposProyecto, "ESTADOPROYECTO = ?", estad,
+			null, null, null);*/
+			
+			Cursor cursor = db.rawQuery(" SELECT * FROM TIPO_DE_TRABAJO", null);
+
+			if(cursor.moveToFirst()){
+				TipoDeTrabajo tipotrabajo = new TipoDeTrabajo();
+				//AGARRO EL PRIMERO VALOR 
+				tipotrabajo.setIdTipoTrabajo(cursor.getString(0));
+				tipotrabajo.setNombreTipo(cursor.getString(1));
+				idtipo.add(tipotrabajo.getIdTipoTrabajo().toString());
+				Tipo.add(tipotrabajo.getNombreTipo().toString());
+				
+				
+				//TOMO LOS VALORES DESDE EL 2DO EN ADELANTE
+				while(cursor.moveToNext()){
+
+					tipotrabajo.setIdTipoTrabajo(cursor.getString(0));
+					tipotrabajo.setNombreTipo(cursor.getString(1));
+					idtipo.add(tipotrabajo.getIdTipoTrabajo().toString());
+					Tipo.add(tipotrabajo.getNombreTipo().toString());
+			
+			
+				}
+				return tipotrabajo;
+				
+				
+				
+			}else{
+			return null;
+			
+			}
+			
+			
+			
+			
+		}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// FUNCIONES DE ELIMINACIÓN DE DATOS
@@ -1606,10 +1667,10 @@ public class BDControl extends SQLiteOpenHelper {
 
 			if (db != null) {
 				ContentValues valores = new ContentValues();
-				String where = "IDBITACORA = '" + tipoDeTrabajo.getIdBitacora() + "'";
-				where = where + "AND IDTIPODETRABAJO = '"+ tipoDeTrabajo.getIdTipoTrabajo() + "'";
+				//String where = "IDBITACORA = '" + tipoDeTrabajo.getIdBitacora() + "'";
+				String where = " IDTIPODETRABAJO = '"+ tipoDeTrabajo.getIdTipoTrabajo() + "'";
 
-				valores.put("CORR", tipoDeTrabajo.getCorrelativo());
+				//valores.put("CORR", tipoDeTrabajo.getCorrelativo());
 				valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
 				contador = db.delete("TIPODETRABAJO", where, null);
 

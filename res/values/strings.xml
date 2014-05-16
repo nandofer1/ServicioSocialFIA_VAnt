@@ -29,5 +29,20 @@
     <string name="ClblContenidoAlumno">Alumno</string>
     <string name="ClblContenidoBeneficiario">Beneficiario</string>
     <string name="ClblDescripcion">Descripción</string>
+    <string name="title_activity_insertar_tipo_de_trabajo">InsertarTipoDeTrabajoActivity</string>
+    <string name="ClblTituloInsertarTTrabajo">Nuevo Tipo de Trabajo</string>
+    <string name="ClblTipoDeTrabajo">Ingrese el Código:</string>
+    <string name="ClblIngresarTipoDeTrabajo">Ingrese el Tipo:</string>
+    <string name="CHintIngresarCodigoTTrabajo">Ejemplo: T001</string>
+    <string name="CbtnInsertarTipoDeTrabajo">Guardar</string>
+    <string name="CHintNombreTipoTrabajo">Ingrese el  nombre del Tipo</string>
+    <string name="ClblSeleccionarActividad">Seleccione Tipo de Trabajo</string>
+    <string name="ClblPrecio">Ingrese el Precio:</string>
+    <string name="CHintPrecio">$</string>
+    <string name="ClblFechaIni">Ingrese la Fecha de Inicio:</string>
+    <string name="CHintFechaIni">dd(mm/aaa</string>
+    <string name="ClblObservacion">Observación</string>
+    <string name="CHinObservacion">Ingrese alguna Observacíon</string>
+    <string name="CbtnInsertarPrecio">Guardar</string>
 
 </resources>

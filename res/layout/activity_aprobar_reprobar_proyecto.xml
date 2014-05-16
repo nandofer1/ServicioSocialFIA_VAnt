@@ -105,13 +105,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/CtextViewNombreProyecto"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/ClblTituloIngresarTTrabajo"
         android:layout_marginTop="15dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/ClblTituloIngresarTTrabajo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CtextViewNombreProyecto"
