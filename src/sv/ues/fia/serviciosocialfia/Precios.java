@@ -2,8 +2,8 @@ package sv.ues.fia.serviciosocialfia;
 
 public class Precios {
 
-	private String correlativo;
-	private String idBitacora;
+	private int correlativo;
+	//private String idBitacora;
 	private String idTipoDeTrabajo;
 	private float precio;
 	private String fechaInicialApliPre;
@@ -15,12 +15,12 @@ public class Precios {
 		
 	}
 
-	public Precios(String correlativo, String idBitacora,
+	public Precios(int correlativo, String idBitacora,
 			String idTipoDeTrabajo, float precio, String fechaInicialApliPre,
 			String fechaFinalApliPre, String observacion) {
 		super();
 		this.correlativo = correlativo;
-		this.idBitacora = idBitacora;
+	//	this.idBitacora = idBitacora;
 		this.idTipoDeTrabajo = idTipoDeTrabajo;
 		this.precio = precio;
 		this.fechaInicialApliPre = fechaInicialApliPre;
@@ -29,21 +29,21 @@ public class Precios {
 	}
 	//FIN de constructores
 
-	public String getCorrelativo() {
+	public int getCorrelativo() {
 		return correlativo;
 	}
 
-	public void setCorrelativo(String correlativo) {
+	public void setCorrelativo(int correlativo) {
 		this.correlativo = correlativo;
 	}
 
-	public String getIdBitacora() {
+	/*public String getIdBitacora() {
 		return idBitacora;
 	}
 
 	public void setIdBitacora(String idBitacora) {
 		this.idBitacora = idBitacora;
-	}
+	}*/
 
 	public String getIdTipoDeTrabajo() {
 		return idTipoDeTrabajo;

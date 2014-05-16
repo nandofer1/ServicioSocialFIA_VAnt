@@ -127,7 +127,7 @@ public class BDControl extends SQLiteOpenHelper {
 
 	// Tabla Precios
 	private static final String TABLA_PRECIOS = "create table PRECIOS "
-			+ "(CORR                 CHAR(2)              not null,"
+			+ "(CORR                 INTEGER (4)              not null,"//se cambio de char(2) a INTEGER(4)
 			//+ "IDBITACORA           CHAR(10)             not null,"
 			+ "IDTIPODETRABAJO      CHAR(10)             not null,"
 			+ "PRECIO               FLOAT                not null,"
@@ -484,7 +484,7 @@ public class BDControl extends SQLiteOpenHelper {
 		if (db != null) {
 			ContentValues valores = new ContentValues();
 			valores.put("CORR", precios.getCorrelativo());
-			valores.put("IDBITACORA", precios.getIdBitacora());
+			//valores.put("IDBITACORA", precios.getIdBitacora());
 			valores.put("IDTIPODETRABAJO", precios.getIdTipoDeTrabajo());
 			valores.put("PRECIO", precios.getPrecio());
 			valores.put("FECHAINICIALAPLIPRE", precios.getFechaInicialApliPre());
@@ -895,14 +895,14 @@ public class BDControl extends SQLiteOpenHelper {
 
 		if (db != null) {
 			ContentValues valores = new ContentValues();
-			String[] id = { precios.getCorrelativo(), precios.getIdBitacora(),
+			String[] id = { Integer.toString(precios.getCorrelativo()),
 					precios.getIdTipoDeTrabajo() };
 			valores.put("PRECIO", precios.getPrecio());
 			valores.put("FECHAINICIALAPLIPRE", precios.getFechaInicialApliPre());
 			valores.put("FECHAFINALAPLIPRE", precios.getFechaFinalApliPre());
 			valores.put("OBSERVACION", precios.getObservacion());
 			contador = db.update("PRECIOS", valores,
-					"CORR = ? AND IDBITACORA = ? AND IDTIPODETRABAJO = ?", id);
+					"CORR = ?  AND IDTIPODETRABAJO = ?", id);
 
 			// Cerrando base de datos
 			db.close();
@@ -1239,15 +1239,86 @@ public class BDControl extends SQLiteOpenHelper {
 	}
 	
 	
+
+	
+	//COSME FUNCIONES CONSULTA DE PRECIOS PARA LLENAR CORRELATIVO Y LLENAR FECHA FINAL
+	
+		public Precios consultarPrecioActualizarFecha(String idtipotrabajo,String Fecha){
+			//ABRIENDO LA BASE
+			SQLiteDatabase db = getWritableDatabase();
+		
+			String[] args = new String[] {idtipotrabajo};
+			Cursor cursor = db.rawQuery(" SELECT * FROM PRECIOS WHERE IDTIPODETRABAJO= ? ORDER BY CORR DESC", args);
+
+			if(cursor.moveToFirst()){//TOMA EL ULTIMO PRECIO PARA ESA ACTIVIDAD PARA AGREGARLE FECHA FINAL ANTES DE AGREGAR
+			Precios PRECIOS = new Precios();
+			
+				PRECIOS.setCorrelativo(cursor.getInt(0));//SE CAMBIO ESTO
+				PRECIOS.setIdTipoDeTrabajo(cursor.getString(1));
+				PRECIOS.setPrecio(cursor.getFloat(2));
+				PRECIOS.setFechaInicialApliPre(cursor.getString(3));
+				PRECIOS.setFechaFinalApliPre(Fecha);//AQUI LE ASIGNAMOS FECHA FINAL AL ANTERIOR REGISTRO DE ESE TIPO DE TRABAJO
+				PRECIOS.setObservacion(cursor.getString(5));
+				
+				
+				actualizar(PRECIOS);
+			
+				return PRECIOS;
+				
+				
+				
+			}else{
+			return null;
+			
+			}
+			
+			
+			
+			
+		}//FIN FUNCION
+		
+	//CONSULTAR PARA AUMENTAR CORRELATIVO
+		public Precios consultarPrecio(){
+			//ABRIENDO LA BASE
+			SQLiteDatabase db = getWritableDatabase();
+		
+		
+			Cursor cursor = db.rawQuery(" SELECT CORR FROM PRECIOS  ORDER BY CORR DESC", null);
+
+			if(cursor.moveToFirst()){//TOMA EL ULTIMO PRECIO PARA ESA ACTIVIDAD PARA AGREGARLE FECHA FINAL ANTES DE AGREGAR
+			Precios PRECIOS = new Precios();
+			
+				PRECIOS.setCorrelativo(cursor.getInt(0));//se cambio a getInt
+				
+				return PRECIOS;
+				
+				
+				
+			}else{
+			return null;
+			
+			}
+			
+			
+			
+			
+		}//FIN FUNCION
+		
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//COSME FUNCION CONSULTA DE tipo de trabajo Para llenar Combobox
 	
 		public TipoDeTrabajo consultarTipoTrabajo( ArrayList<String> Tipo, ArrayList<String> idtipo){
 			//ABRIENDO LA BASE
 			SQLiteDatabase db = getWritableDatabase();
-			/*String[] estad = {estado};
-			Cursor cursor = db.query("PROYECTO", camposProyecto, "ESTADOPROYECTO = ?", estad,
-			null, null, null);*/
+			
 			
 			Cursor cursor = db.rawQuery(" SELECT * FROM TIPO_DE_TRABAJO", null);
 
@@ -1564,7 +1635,7 @@ public class BDControl extends SQLiteOpenHelper {
 			if (db != null) {
 				ContentValues valores = new ContentValues();
 				String where = "CORR = '" + precios.getCorrelativo() + "'";
-				where = where + "AND IDBITACORA = '"+ precios.getIdBitacora() + "'";
+			//	where = where + "AND IDBITACORA = '"+ precios.getIdBitacora() + "'";
 				where = where + "AND IDTIPODETRABAJO = '"+ precios.getIdTipoDeTrabajo() + "'";
 
 				valores.put("PRECIO", precios.getPrecio());

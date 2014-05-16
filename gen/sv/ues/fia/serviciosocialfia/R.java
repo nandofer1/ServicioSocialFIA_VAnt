@@ -1092,8 +1092,8 @@ containing a value of this type.
         public static final int CbtnInsertarPrecio=0x7f050051;
         public static final int CbtnInsertarTTrabajo1=0x7f05005a;
         public static final int CbtnReprobar=0x7f050044;
-        public static final int CeditTextFechaIni=0x7f050053;
-        public static final int CeditTextObservacionPrecio=0x7f050055;
+        public static final int CeditTextFechaIni=0x7f050055;
+        public static final int CeditTextObservacionPrecio=0x7f050054;
         public static final int CedittextCodigoTTrabajo=0x7f050058;
         public static final int CedittextTipoDeTrabajo=0x7f050057;
         public static final int CimgBtnModElimPrecio=0x7f05004c;
@@ -1102,7 +1102,7 @@ containing a value of this type.
         public static final int ClblContenidoNombreProyecto=0x7f05003d;
         public static final int ClblFechaIni=0x7f050052;
         public static final int ClblNombreTipoDeTrabajo=0x7f050059;
-        public static final int ClblObservacionPrecio=0x7f050054;
+        public static final int ClblObservacionPrecio=0x7f050053;
         public static final int ClblPrecio=0x7f05004f;
         public static final int ClblSelcciionarTipoTrabajo=0x7f05004d;
         public static final int ClblTituloAlumno=0x7f05003f;

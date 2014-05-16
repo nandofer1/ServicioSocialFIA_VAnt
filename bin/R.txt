@@ -243,8 +243,8 @@ int id CbtnAprobar 0x7f050045
 int id CbtnInsertarPrecio 0x7f050051
 int id CbtnInsertarTTrabajo1 0x7f05005a
 int id CbtnReprobar 0x7f050044
-int id CeditTextFechaIni 0x7f050053
-int id CeditTextObservacionPrecio 0x7f050055
+int id CeditTextFechaIni 0x7f050055
+int id CeditTextObservacionPrecio 0x7f050054
 int id CedittextCodigoTTrabajo 0x7f050058
 int id CedittextTipoDeTrabajo 0x7f050057
 int id CimgBtnModElimPrecio 0x7f05004c
@@ -253,7 +253,7 @@ int id ClblContenidoBeneficiario 0x7f050043
 int id ClblContenidoNombreProyecto 0x7f05003d
 int id ClblFechaIni 0x7f050052
 int id ClblNombreTipoDeTrabajo 0x7f050059
-int id ClblObservacionPrecio 0x7f050054
+int id ClblObservacionPrecio 0x7f050053
 int id ClblPrecio 0x7f05004f
 int id ClblSelcciionarTipoTrabajo 0x7f05004d
 int id ClblTituloAlumno 0x7f05003f
