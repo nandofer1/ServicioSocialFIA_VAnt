@@ -44,5 +44,15 @@
     <string name="ClblObservacion">Observación</string>
     <string name="CHinObservacion">Ingrese alguna Observacíon</string>
     <string name="CbtnInsertarPrecio">Guardar</string>
+    <string name="title_activity_consultar_tipode_trabajo">ConsultarTipodeTrabajoActivity</string>
+    <string name="ClblSeleccionarTipoDeTrabajo">Seleccione un Item</string>
+    <string name="ClblIdTipoTrabajo">Id:</string>
+    <string name="ClblContenidoIdTipoTrabajo">Tipo Trabajo</string>
+    <string name="CHintMostarTipoTrabajo"/>
+    <string name="CbtnModificarTipoTrabajo">Modificar</string>
+    <string name="CbtnEliminarTipoTrabajo">Eliminar</string>
+    <string name="CbtnGuardarModTipoTrabajo">Guardar</string>
+    <string name="ClblMostrarNombreTipoTrabajo">Nombrer Tipo de Trabajo</string>
+    <string name="CbtnCancelarTipoTrabajo">Cancelar</string>
 
 </resources>

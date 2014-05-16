@@ -9,8 +9,80 @@
     tools:context=".ModElimPreciosActividad" >
 
     <TextView
+        android:id="@+id/ClblIdTipoTrabajo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/ClblIdTipoTrabajo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/ClblContenidoIdTipoTrabajo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ClblIdTipoTrabajo"
+        android:layout_alignBottom="@+id/ClblIdTipoTrabajo"
+        android:layout_marginLeft="42dp"
+        android:layout_toRightOf="@+id/ClblIdTipoTrabajo"
+        android:text="@string/ClblContenidoIdTipoTrabajo" />
+
+    <EditText
+        android:id="@+id/CEditContenedorTipoTrabajo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ClblNombreTipoTrabajo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/CbtnElimTipoTrabajo"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CbtnModTipoTrabajo"
+        android:layout_below="@+id/CbtnModTipoTrabajo"
+        android:layout_marginTop="27dp"
+        android:text="@string/CbtnEliminarTipoTrabajo" />
+
+    <Button
+        android:id="@+id/CbtnGModTipoTrabajo"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/CEditContenedorTipoTrabajo"
+        android:layout_alignTop="@+id/CbtnModTipoTrabajo"
+        android:text="@string/CbtnGuardarModTipoTrabajo" />
+
+    <Button
+        android:id="@+id/CbtnModTipoTrabajo"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CEditContenedorTipoTrabajo"
+        android:layout_marginTop="55dp"
+        android:layout_toRightOf="@+id/ClblIdTipoTrabajo"
+        android:text="@string/CbtnModificarTipoTrabajo" />
+
+    <TextView
+        android:id="@+id/ClblNombreTipoTrabajo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CEditContenedorTipoTrabajo"
+        android:layout_below="@+id/ClblIdTipoTrabajo"
+        android:layout_marginTop="34dp"
+        android:text="@string/ClblMostrarNombreTipoTrabajo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/CbrnCancelarTipoTrabajo"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CbtnGModTipoTrabajo"
+        android:layout_alignTop="@+id/CbtnElimTipoTrabajo"
+        android:text="Button" />
 
 </RelativeLayout>

@@ -50,6 +50,10 @@
             android:name="sv.ues.fia.serviciosocialfia.InsertarTipoDeTrabajoActivity"
             android:label="@string/title_activity_insertar_tipo_de_trabajo" >
         </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.ConsultarTipodeTrabajoActivity"
+            android:label="@string/title_activity_consultar_tipode_trabajo" >
+        </activity>
     </application>
 
 </manifest>

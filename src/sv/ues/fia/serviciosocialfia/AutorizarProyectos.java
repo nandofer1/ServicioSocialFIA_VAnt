@@ -23,8 +23,7 @@ public class AutorizarProyectos extends Activity {
 	
 	//CREAMOS EL HELPER
 BDControl	helper; 
-	String[] roles = {"Estudiante", "Tutor","Director","LlenarBD(Para pruebas)"};
-	//Me ayudara a Llenar el ListView con los protyectos que reciba de la base
+
 	ListView llenarlista ;
 
 	@Override

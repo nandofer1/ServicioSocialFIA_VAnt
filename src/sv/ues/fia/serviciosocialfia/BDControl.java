@@ -1009,7 +1009,7 @@ public class BDControl extends SQLiteOpenHelper {
 					tipoDeTrabajo.getIdTipoTrabajo() };
 			//valores.put("CORR", tipoDeTrabajo.getCorrelativo());
 			valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
-			contador = db.update("TIPODETRABAJO", valores,
+			contador = db.update("TIPO_DE_TRABAJO", valores,
 					"IDTIPODETRABAJO = ?", id);
 
 			// Cerrando base de datos
@@ -1087,6 +1087,32 @@ public class BDControl extends SQLiteOpenHelper {
 					return null;
 				}
 			}
+			
+			
+			//CONSULTAR TIPO DE TRABAJO NORMAL COSME
+			public TipoDeTrabajo ConsultarTipoTrabajo(String idtipo){
+				//ABRIENDO LA BASE
+				SQLiteDatabase db = getWritableDatabase();
+				String[] idT = {idtipo};
+				Cursor cursor = db.query("TIPO_DE_TRABAJO", camposTipoTrabajo, "IDTIPODETRABAJO = ?", idT,
+						null, null, null);
+				if(cursor.moveToFirst()){
+					TipoDeTrabajo tipotrabajo=new  TipoDeTrabajo();
+					
+					
+					tipotrabajo.setIdTipoTrabajo(cursor.getString(0));
+					tipotrabajo.setNombreTipo(cursor.getString(1));
+					return tipotrabajo;
+				}
+				else{
+					return null;
+				}
+			}
+			
+			
+			
+			
+			
 			
 			
 			//COSME CONSULTAR TIPO DE PROYECTO
@@ -1743,7 +1769,7 @@ public class BDControl extends SQLiteOpenHelper {
 
 				//valores.put("CORR", tipoDeTrabajo.getCorrelativo());
 				valores.put("NOMBRETIPO", tipoDeTrabajo.getNombreTipo());
-				contador = db.delete("TIPODETRABAJO", where, null);
+				contador = db.delete("TIPO_DE_TRABAJO", where, null);
 
 				// Cerrando base de datos
 				db.close();
