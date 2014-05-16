@@ -1215,14 +1215,16 @@ containing a value of this type.
         public static final int activity_director_menu=0x7f03001b;
         public static final int activity_gestion_de_estudiantes=0x7f03001c;
         public static final int activity_gestion_de_proyectos=0x7f03001d;
-        public static final int activity_gestion_precios=0x7f03001e;
-        public static final int activity_insertar_precio_actividad=0x7f03001f;
-        public static final int activity_mod_elim_precios_actividad=0x7f030020;
-        public static final int activity_servicio_social=0x7f030021;
-        public static final int fragment_director_menu=0x7f030022;
-        public static final int fragment_gestion_de_estudiantes=0x7f030023;
-        public static final int fragment_gestion_de_proyectos=0x7f030024;
-        public static final int support_simple_spinner_dropdown_item=0x7f030025;
+        public static final int activity_gestion_de_valuacion_de_proyectos=0x7f03001e;
+        public static final int activity_gestion_precios=0x7f03001f;
+        public static final int activity_insertar_precio_actividad=0x7f030020;
+        public static final int activity_mod_elim_precios_actividad=0x7f030021;
+        public static final int activity_servicio_social=0x7f030022;
+        public static final int fragment_director_menu=0x7f030023;
+        public static final int fragment_gestion_de_estudiantes=0x7f030024;
+        public static final int fragment_gestion_de_proyectos=0x7f030025;
+        public static final int fragment_gestion_de_valuacion_de_proyectos=0x7f030026;
+        public static final int support_simple_spinner_dropdown_item=0x7f030027;
     }
     public static final class menu {
         public static final int aprobar_reprobar_proyecto=0x7f0c0000;
@@ -1231,10 +1233,11 @@ containing a value of this type.
         public static final int director_menu=0x7f0c0003;
         public static final int gestion_de_estudiantes=0x7f0c0004;
         public static final int gestion_de_proyectos=0x7f0c0005;
-        public static final int gestion_precios=0x7f0c0006;
-        public static final int insertar_precio_actividad=0x7f0c0007;
-        public static final int mod_elim_precios_actividad=0x7f0c0008;
-        public static final int servicio_social=0x7f0c0009;
+        public static final int gestion_de_valuacion_de_proyectos=0x7f0c0006;
+        public static final int gestion_precios=0x7f0c0007;
+        public static final int insertar_precio_actividad=0x7f0c0008;
+        public static final int mod_elim_precios_actividad=0x7f0c0009;
+        public static final int servicio_social=0x7f0c000a;
     }
     public static final class string {
         public static final int CDescripcionProyecto=0x7f0a001c;
@@ -1296,6 +1299,7 @@ containing a value of this type.
         public static final int title_activity_director_menu=0x7f0a0022;
         public static final int title_activity_gestion_de_estudiantes=0x7f0a0020;
         public static final int title_activity_gestion_de_proyectos=0x7f0a0021;
+        public static final int title_activity_gestion_de_valuacion_de_proyectos=0x7f0a0023;
         public static final int title_activity_gestion_precios=0x7f0a0012;
         public static final int title_activity_insertar_precio_actividad=0x7f0a001d;
         public static final int title_activity_mod_elim_precios_actividad=0x7f0a001f;

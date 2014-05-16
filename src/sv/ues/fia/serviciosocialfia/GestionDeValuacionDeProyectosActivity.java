@@ -7,17 +7,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class DirectorMenuActivity extends ListActivity {
-
-	String[] opciones = {"Gestión de Estudiantes","Gestión de Proyectos", "Autorizar Proyectos", "Gestion de Valuación de Proyectos"};
-	String[] activities = {"GestionDeEstudiantesActivity", "GestionDeProyectosActivity", "AutorizarProyectos", "GestionDeValuacionDeProyectosActivity"};
-
+public class GestionDeValuacionDeProyectosActivity extends ListActivity {
+	String[] opciones = {"Gestion de Precios"};
+	String[] activities = {"GestionPrecios"};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,opciones));
 	}
-	
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -33,4 +30,6 @@ public class DirectorMenuActivity extends ListActivity {
 		}
 	}
 	
+	
+
 }
