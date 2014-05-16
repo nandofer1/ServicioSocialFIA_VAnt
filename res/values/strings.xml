@@ -20,5 +20,7 @@
     <string name="title_activity_insertar_precio_actividad">InsertarPrecioActividad</string>
     <string name="CImbuttonInsertPrecio" />
     <string name="title_activity_mod_elim_precios_actividad">ModElimPreciosActividad</string>
+    <string name="title_activity_gestion_de_estudiantes">Gestion de estudiantes</string>
+    <string name="title_activity_gestion_de_proyectos">Gestion de proyectos</string>
 
 </resources>

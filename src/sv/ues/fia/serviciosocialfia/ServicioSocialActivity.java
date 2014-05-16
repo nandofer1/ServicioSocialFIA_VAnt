@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class ServicioSocialActivity extends ListActivity {
 	
 	String[] roles = {"Estudiante", "Tutor","Director","LlenarBD(Para pruebas)"};
+	String[] activities = {};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
