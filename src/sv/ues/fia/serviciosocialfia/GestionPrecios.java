@@ -35,7 +35,7 @@ ImageButton btnModElim;
              @ Override  
              public void onClick (View v) {  
             	 //Abrimos el Activity para insertar un nuevo precio
-            	 Intent AbrirActModElim = new Intent(GestionPrecios.this, InsertarPrecioActividad.class);
+            	 Intent AbrirActModElim = new Intent(GestionPrecios.this, ConsultarPreciosActivity.class);
                  startActivity(AbrirActModElim );
                                
              }  

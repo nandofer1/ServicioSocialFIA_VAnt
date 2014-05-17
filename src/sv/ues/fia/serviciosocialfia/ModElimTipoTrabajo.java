@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class ModElimPreciosActividad extends Activity {
+public class ModElimTipoTrabajo extends Activity {
 	
 	BDControl helper=new BDControl(this);
 	public static String idtipotrabajo;
@@ -66,7 +66,7 @@ public class ModElimPreciosActividad extends Activity {
             @ Override  
             public void onClick (View v) {  
            	 //lo que hara el boton al presionarlo
-            	 Intent RegresarVerTipoPoryecto = new Intent(ModElimPreciosActividad.this, ConsultarTipodeTrabajoActivity.class);
+            	 Intent RegresarVerTipoPoryecto = new Intent(ModElimTipoTrabajo.this, ConsultarTipodeTrabajoActivity.class);
                  startActivity( RegresarVerTipoPoryecto );
             	finish();
                               
@@ -127,7 +127,7 @@ public class ModElimPreciosActividad extends Activity {
 			AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this); 
 			dialogo1.setMessage(msj);
 			dialogo1.show();
-			 Intent RegresarVerTipoPoryecto = new Intent(ModElimPreciosActividad.this, ConsultarTipodeTrabajoActivity.class);
+			 Intent RegresarVerTipoPoryecto = new Intent(ModElimTipoTrabajo.this, ConsultarTipodeTrabajoActivity.class);
              startActivity( RegresarVerTipoPoryecto );
         	finish();
 			
@@ -153,7 +153,7 @@ public class ModElimPreciosActividad extends Activity {
 	     			tipoTrabajoElim.setNombreTipo(EditNombre.getText().toString());
 	     		
 	     			helper.eliminar(tipoTrabajoElim);
-	     			Intent RegresarVerTipoPoryecto = new Intent(ModElimPreciosActividad.this, ConsultarTipodeTrabajoActivity.class);
+	     			Intent RegresarVerTipoPoryecto = new Intent(ModElimTipoTrabajo.this, ConsultarTipodeTrabajoActivity.class);
 	                startActivity( RegresarVerTipoPoryecto );
 	                 
 	                 finish();

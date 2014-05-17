@@ -48,11 +48,28 @@
     <string name="ClblSeleccionarTipoDeTrabajo">Seleccione un Item</string>
     <string name="ClblIdTipoTrabajo">Id:</string>
     <string name="ClblContenidoIdTipoTrabajo">Tipo Trabajo</string>
-    <string name="CHintMostarTipoTrabajo"/>
+    <string name="CHintMostarTipoTrabajo" />
     <string name="CbtnModificarTipoTrabajo">Modificar</string>
     <string name="CbtnEliminarTipoTrabajo">Eliminar</string>
     <string name="CbtnGuardarModTipoTrabajo">Guardar</string>
     <string name="ClblMostrarNombreTipoTrabajo">Nombrer Tipo de Trabajo</string>
     <string name="CbtnCancelarTipoTrabajo">Cancelar</string>
+    <string name="title_activity_gestion_tipo_trabajo">GestionTipoTrabajoActivity</string>
+    <string name="ClblTituloGestionTipoTrabajo">Gestion de Tipo de Trabajo</string>
+    <string name="ClblAgregarTipoTrabajo">Agregar Nuevo</string>
+    <string name="ClblModElimTipoTrabajo">Consultar, Modificar o Eliminar</string>
+    <string name="title_activity_consultar_precios">ConsultarPreciosActivity</string>
+    <string name="ClblTituloConsultarPrecios">Precios Ingresados</string>
+    <string name="title_activity_mod_elim_precios">ModElimPreciosActivity</string>
+    <string name="ClblRegistroPrecio">Registro Precio</string>
+    <string name="ClblTipotrabajoPrecio">Tipo de Trabajo</string>
+    <string name="ClblFechaIniprecio">Fecha Inicial:</string>
+    <string name="ClblFechaFinPrecio">Fecha Fin:</string>
+    <string name="ClblPrecioContendio">Precio:</string>
+    <string name="ClblContenidoObservacionPrecio">Observación;</string>
+    <string name="CbtnModPrecio">Modificar</string>
+    <string name="CbtnElimPrecio">Eliminar</string>
+    <string name="CbtnGMod">Guardar</string>
+    <string name="CbtnCancelarPrecio">Cancelar</string>
 
 </resources>

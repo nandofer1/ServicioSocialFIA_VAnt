@@ -1265,6 +1265,60 @@ public class BDControl extends SQLiteOpenHelper {
 	}
 	
 	
+	//COSME FUNCION CONSULTA DE PROYECTOS PENDIENTES DE APROBACION
+	
+		public void consultarPrecios(ArrayList<String> idtipotrabajo, ArrayList<String> idprecios,ArrayList<String> fechas){
+			//ABRIENDO LA BASE
+			SQLiteDatabase db = getWritableDatabase();
+			Precios precio = new Precios();
+		Cursor cursor=db.rawQuery("SELECT * FROM PRECIOS", null);
+			if(cursor.moveToFirst()){
+				
+				//AGARRO EL PRIMERO VALOR 
+				precio.setCorrelativo(cursor.getInt(0));
+				precio.setIdTipoDeTrabajo(cursor.getString(1));
+				precio.setPrecio(cursor.getFloat(2));
+				precio.setFechaInicialApliPre(cursor.getString(3));
+				precio.setFechaFinalApliPre(cursor.getString(4));
+				precio.setObservacion(cursor.getString(5));
+				idtipotrabajo.add(cursor.getString(1));
+				idprecios.add(Integer.toString(cursor.getInt(0)));
+				fechas.add(cursor.getString(3));
+				
+				
+				
+				
+				//TOMO LOS VALORES DESDE EL 2DO EN ADELANTE
+				
+				while(cursor.moveToNext()){
+					precio.setCorrelativo(cursor.getInt(0));
+					precio.setIdTipoDeTrabajo(cursor.getString(1));
+					precio.setPrecio(cursor.getFloat(2));
+					precio.setFechaInicialApliPre(cursor.getString(3));
+					precio.setFechaFinalApliPre(cursor.getString(4));
+					precio.setObservacion(cursor.getString(5));
+					idtipotrabajo.add(cursor.getString(1));
+					idprecios.add(Integer.toString(cursor.getInt(0)));
+					fechas.add(cursor.getString(3));
+					
+				
+				}
+				
+			}
+			
+		
+			
+		
+			
+			
+			
+			
+		}
+	
+	
+	
+	
+	
 
 	
 	//COSME FUNCIONES CONSULTA DE PRECIOS PARA LLENAR CORRELATIVO Y LLENAR FECHA FINAL
@@ -1303,7 +1357,7 @@ public class BDControl extends SQLiteOpenHelper {
 			
 		}//FIN FUNCION
 		
-	//CONSULTAR PARA AUMENTAR CORRELATIVO
+	//COSME CONSULTAR PARA AUMENTAR CORRELATIVO
 		public Precios consultarPrecio(){
 			//ABRIENDO LA BASE
 			SQLiteDatabase db = getWritableDatabase();
@@ -1324,6 +1378,36 @@ public class BDControl extends SQLiteOpenHelper {
 			return null;
 			
 			}
+		}
+			
+			//COSME CONSULTAR  PRECIO NORMAL POR ID
+			public Precios consultarPrecio(int CORR){
+				//ABRIENDO LA BASE
+				SQLiteDatabase db = getWritableDatabase();
+			
+			String corr[]={Integer.toString(CORR)};
+				Cursor cursor = db.rawQuery(" SELECT * FROM PRECIOS  Where CORR = ? ", corr);
+
+				if(cursor.moveToFirst()){//TOMA EL ULTIMO PRECIO PARA ESA ACTIVIDAD PARA AGREGARLE FECHA FINAL ANTES DE AGREGAR
+				Precios PRECIOS = new Precios();
+				
+					PRECIOS.setCorrelativo(cursor.getInt(0));//se cambio a getInt
+					PRECIOS.setIdTipoDeTrabajo(cursor.getString(1));
+					PRECIOS.setPrecio(cursor.getFloat(2));
+					PRECIOS.setFechaInicialApliPre(cursor.getString(3));
+					PRECIOS.setFechaFinalApliPre(cursor.getString(4));
+					PRECIOS.setObservacion(cursor.getString(5));
+					
+					return PRECIOS;
+					
+					
+					
+				}else{
+				return null;
+				
+				}
+				
+				
 			
 			
 			

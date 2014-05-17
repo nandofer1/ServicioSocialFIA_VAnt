@@ -45,7 +45,7 @@ public class ServicioSocialActivity extends ListActivity {
 		
 		if(position==1)
 		{
-			Intent act = new Intent(this, ConsultarTipodeTrabajoActivity.class);
+			Intent act = new Intent(this, GestionTipoTrabajoActivity.class);
 			 
 			 startActivity(act);
 			

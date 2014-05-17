@@ -68,10 +68,10 @@ public class ConsultarTipodeTrabajoActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                   "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
                   .show();
-                ModElimPreciosActividad idp=new ModElimPreciosActividad();
+                ModElimTipoTrabajo idp=new ModElimTipoTrabajo();
                 idp.idtipotrabajo=itemValue;
               //Abrimos el activity donde se mostrara el Tipo trabajo seleccionado
-                Intent AbrirActAModElimPreciosActividad = new Intent(ConsultarTipodeTrabajoActivity.this, ModElimPreciosActividad.class);
+                Intent AbrirActAModElimPreciosActividad = new Intent(ConsultarTipodeTrabajoActivity.this, ModElimTipoTrabajo.class);
                 startActivity(AbrirActAModElimPreciosActividad );
               //Cerramos este activity
                 finish();

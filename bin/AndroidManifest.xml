@@ -43,7 +43,7 @@
             android:label="@string/title_activity_insertar_precio_actividad" >
         </activity>
         <activity
-            android:name="sv.ues.fia.serviciosocialfia.ModElimPreciosActividad"
+            android:name="sv.ues.fia.serviciosocialfia.ModElimTipoTrabajo"
             android:label="@string/title_activity_mod_elim_precios_actividad" >
         </activity>
         <activity
@@ -53,6 +53,18 @@
         <activity
             android:name="sv.ues.fia.serviciosocialfia.ConsultarTipodeTrabajoActivity"
             android:label="@string/title_activity_consultar_tipode_trabajo" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.GestionTipoTrabajoActivity"
+            android:label="@string/title_activity_gestion_tipo_trabajo" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.ConsultarPreciosActivity"
+            android:label="@string/title_activity_consultar_precios" >
+        </activity>
+        <activity
+            android:name="sv.ues.fia.serviciosocialfia.ModElimPreciosActivity"
+            android:label="@string/title_activity_mod_elim_precios" >
         </activity>
     </application>
 

@@ -151,15 +151,18 @@ static public String valorseleccionado;
       	{
       		int nuevocorrelativo=1;
       		
-      		
-      		precio.setCorrelativo(nuevocorrelativo);
-      		precio.setIdTipoDeTrabajo(valorseleccionado);
-      		precio.setFechaInicialApliPre(EditFechaIni.getText().toString());
-      		precio.setFechaFinalApliPre(null);//LA FECHA INICIAL DEL SIGUIENTE ES LA FINAL DEL ANTERIOR
-      		precio.setPrecio(Float.parseFloat(Precio.getText().toString()));
-      		precio.setObservacion(observacion.getText().toString());
+      		 Precios precio1=new Precios(); 	
+      		precio1.setCorrelativo(nuevocorrelativo);
+      		precio1.setIdTipoDeTrabajo(valorseleccionado);
+      		precio1.setFechaInicialApliPre(EditFechaIni.getText().toString());
+      		precio1.setFechaFinalApliPre("N/D");//LA FECHA INICIAL DEL SIGUIENTE ES LA FINAL DEL ANTERIOR
+      		precio1.setPrecio(Float.parseFloat(Precio.getText().toString()));
+      		precio1.setObservacion(observacion.getText().toString());
       		//INSERTAMOS A LA BASE DE DATOS
-      		helper.insertar(precio);
+      		helper.insertar(precio1);
+      		EditFechaIni.setText("");
+      		Precio.setText("");
+      		observacion.setText("");
       		
       	}
 	}

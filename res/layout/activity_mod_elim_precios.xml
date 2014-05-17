@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ModElimPreciosActivity" >
+
+    <TextView
+        android:id="@+id/ClblTipotrabajoPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="52dp"
+        android:text="@string/ClblTipotrabajoPrecio"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/ClblContenidoTipoTrabajoPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ClblTipotrabajoPrecio"
+        android:layout_alignBottom="@+id/ClblTipotrabajoPrecio"
+        android:layout_marginLeft="42dp"
+        android:layout_toRightOf="@+id/ClblTipotrabajoPrecio"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/ClblFechaFinPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ClblTipotrabajoPrecio"
+        android:layout_marginTop="19dp"
+        android:text="@string/ClblFechaFinPrecio"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/ClblContenidoFechaFinPrecios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ClblFechaFinPrecio"
+        android:layout_alignBottom="@+id/ClblFechaFinPrecio"
+        android:layout_alignLeft="@+id/ClblContenidoTipoTrabajoPrecio"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/CbtnGModPrecio"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CbtnModPrecio"
+        android:layout_alignBottom="@+id/CbtnModPrecio"
+        android:layout_toRightOf="@+id/ClblContenidoObservacion"
+        android:text="@string/CbtnGMod" />
+
+    <Button
+        android:id="@+id/CbtnCancelarPrecio"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CbtnGModPrecio"
+        android:layout_alignTop="@+id/CbtnEliminarPrecio"
+        android:text="@string/CbtnCancelarPrecio" />
+
+    <TextView
+        android:id="@+id/ClblTituloModElimPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/ClblRegistroPrecio"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/CbtnEliminarPrecio"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CbtnModPrecio"
+        android:layout_alignParentBottom="true"
+        android:text="@string/CbtnElimPrecio" />
+
+    <Button
+        android:id="@+id/CbtnModPrecio"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/CbtnEliminarPrecio"
+        android:layout_alignLeft="@+id/ClblPrecioContendio"
+        android:text="@string/CbtnModPrecio" />
+
+    <EditText
+        android:id="@+id/CEditTextContenidoObservacionPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ClblContenidoObservacion"
+        android:layout_centerHorizontal="true"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/ClblContenidoObservacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ClblEditTextContendioPrecio"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/ClblContenidoObservacionPrecio"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/ClblEditTextContendioPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ClblTituloModElimPrecio"
+        android:layout_alignTop="@+id/ClblPrecioContendio"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/ClblPrecioContendio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ClblFechaFinPrecio"
+        android:layout_below="@+id/ClblFechaFinPrecio"
+        android:layout_marginTop="39dp"
+        android:text="@string/ClblPrecioContendio"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>
