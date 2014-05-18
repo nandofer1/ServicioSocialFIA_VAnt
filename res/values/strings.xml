@@ -40,7 +40,7 @@
     <string name="ClblPrecio">Ingrese el Precio:</string>
     <string name="CHintPrecio">$</string>
     <string name="ClblFechaIni">Ingrese la Fecha de Inicio:</string>
-    <string name="CHintFechaIni">dd(mm/aaa</string>
+    <string name="CHintFechaIni">dd/mm/aaaa</string>
     <string name="ClblObservacion">Observación</string>
     <string name="CHinObservacion">Ingrese alguna Observacíon</string>
     <string name="CbtnInsertarPrecio">Guardar</string>

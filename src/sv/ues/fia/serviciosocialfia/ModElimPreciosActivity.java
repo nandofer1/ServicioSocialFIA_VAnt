@@ -2,17 +2,24 @@ package sv.ues.fia.serviciosocialfia;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ModElimPreciosActivity extends Activity {
+	BDControl helper=new BDControl(this);
 public static String idprecio;
 public static String nombreTipoTrabajo;
-/*public static String FechaIni;
-public static String Fechafin;
-public static String FechaObser;*/
+public static String idtipotrabajo;
+public static String FechaIn;
+
 TextView contenidoTipoTrabajo;
 
 TextView fechafin;
@@ -43,6 +50,53 @@ Button btnCancelar;
 		 //agregar los datos a los controles
 		SetDatos();
 		
+		//BOTON MODIFICAR
+				btnMod.setOnClickListener (new OnClickListener () {  
+		            @ Override  
+		            public void onClick (View v) {  
+		           	 //lo que hara el boton al presionarlo
+		           	 
+		            	ClickModificar();
+		                              
+		            }  
+		       }); 
+				
+				//BOTON ELIMINAR
+				btnElim.setOnClickListener (new OnClickListener () {  
+		            @ Override  
+		            public void onClick (View v) {  
+		           	 //lo que hara el boton al presionarlo
+		           	 
+		            	ClickEliminar();
+		                              
+		            }  
+		       }); 
+				
+				//BOTON CANCELAR
+				btnCancelar.setOnClickListener (new OnClickListener () {  
+		            @ Override  
+		            public void onClick (View v) {  
+		           	 //lo que hara el boton al presionarlo
+		            	 Intent RegresarVerPrecios = new Intent(ModElimPreciosActivity.this, ConsultarPreciosActivity.class);
+		                 startActivity( RegresarVerPrecios );
+		            	finish();
+		                              
+		            }  
+		       }); 
+				
+				//BOTON GUARDAR MODIFICACION
+				btnGMod.setOnClickListener (new OnClickListener () {  
+		            @ Override  
+		            public void onClick (View v) {  
+		           	 //lo que hara el boton al presionarlo
+		           	 
+		            	 ClickGuardarModificar();
+		                              
+		            }  
+		       }); 
+		
+		
+		
 	}
 
 	@Override
@@ -69,6 +123,94 @@ Button btnCancelar;
 		fechafin.setText(precio.getFechaFinalApliPre());
 	}
 
+	
+	
+	
+	//si seleccionamos Modificar datos
+	public void ClickModificar()
+	{
+		 btnGMod.setEnabled(true);
+		 ContenidoObservacion.setEnabled(true);
+		 btnMod.setEnabled(false);		
+		 btnElim.setEnabled(false);
+		 ContenidoPrecio.setEnabled(true);
+	}
+	
+	
+	//si seleccionamos Guardar la Modificacion datos
+		public void ClickGuardarModificar()
+		{
+			Precios precio=new Precios();
+			precio.setCorrelativo(Integer.parseInt(idprecio));
+			precio.setIdTipoDeTrabajo(idtipotrabajo);
+			precio.setPrecio(Float.parseFloat(ContenidoPrecio.getText().toString()));
+			precio.setFechaInicialApliPre(FechaIn);
+			precio.setFechaFinalApliPre(fechafin.getText().toString());
+			precio.setObservacion(ContenidoObservacion.getText().toString());
+			String msj;
+			msj=helper.actualizar(precio);
+			AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this); 
+			dialogo1.setMessage(msj);
+			dialogo1.show();
+			 Intent RegresarPrecios = new Intent(ModElimPreciosActivity.this, ConsultarPreciosActivity.class);
+             startActivity( RegresarPrecios );
+        	finish();
+			
+		}
+		
+	
+		//si seleccionamos Eliminar el registro
+		public void ClickEliminar()
+		{
+			
+			
+			 AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);  
+	         dialogo1.setTitle("Importante");  
+	         dialogo1.setMessage("¿ Esta Seguro que desea Eliminar este Registro?");            
+	         dialogo1.setCancelable(false);  
+	         dialogo1.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {  
+	             public void onClick(DialogInterface dialogo1, int id) {  
+	                 // SI ACEPTAMOS  
+	            	
+	            	
+	            	Precios precio=new Precios();
+	     			
+			
+	            	
+	            	
+	            	
+	        precio.setCorrelativo(Integer.parseInt(idprecio));
+			precio.setIdTipoDeTrabajo(idtipotrabajo);
+			precio.setFechaInicialApliPre(FechaIn);
+			precio.setFechaFinalApliPre(fechafin.getText().toString());
+			precio.setObservacion(ContenidoObservacion.getText().toString());
+	     		String msj;
+	     			msj=helper.eliminar(precio);
+	     			 Toast.makeText(getApplicationContext(),
+		                      msj , Toast.LENGTH_LONG)
+		                      .show();
+	     			
+	     			 //cambios fecha al precio anterior de este tipo de trabajo
+	     			 precio=helper.consultarPrecio(idtipotrabajo);
+	     			 if(precio!=null)
+	     			 {
+	     			 precio=helper.consultarPrecioActualizarFecha(idtipotrabajo, "Vigente");
+	     			 }
+	     			Intent RegresarPrecios = new Intent(ModElimPreciosActivity.this, ConsultarPreciosActivity.class);
+             startActivity( RegresarPrecios );
+        	finish();
+	            	 
+	             }  
+	         });  
+	         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {  
+	             public void onClick(DialogInterface dialogo1, int id) {  
+	                 //SI CANCELAMOS
+	             }  
+	         });            
+	         dialogo1.show(); 
+			
+		}
+		
 	
 	
 }

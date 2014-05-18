@@ -39,44 +39,6 @@
         android:text="@string/ClblPrecio"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
-        android:id="@+id/CbtnInsertarPrecio"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/CbtnInsertarPrecio" />
-
-    <TextView
-        android:id="@+id/ClblFechaIni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/CEditTextPrecio"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:text="@string/ClblFechaIni"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/ClblObservacionPrecio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/CeditTextObservacionPrecio"
-        android:layout_alignLeft="@+id/CeditTextObservacionPrecio"
-        android:layout_marginLeft="20dp"
-        android:text="@string/ClblObservacion"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/CeditTextObservacionPrecio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/CbtnInsertarPrecio"
-        android:layout_alignLeft="@+id/CeditTextFechaIni"
-        android:ems="10"
-        android:hint="@string/CHinObservacion" />
-
     <Spinner
         android:id="@+id/CspinnerTipoTrabajo"
         android:layout_width="wrap_content"
@@ -94,5 +56,34 @@
         android:ems="10"
         android:hint="@string/CHintFechaIni"
         android:inputType="date" />
+
+    <TextView
+        android:id="@+id/ClblFechaIni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CeditTextFechaIni"
+        android:layout_below="@+id/CEditTextPrecio"
+        android:layout_marginTop="18dp"
+        android:text="@string/ClblFechaIni"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/CeditTextObservacionPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/CbtnInsertarPrecio"
+        android:layout_alignLeft="@+id/CeditTextFechaIni"
+        android:ems="10"
+        android:hint="@string/CHinObservacion" />
+
+    <Button
+        android:id="@+id/CbtnInsertarPrecio"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ClblPrecio"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="14dp"
+        android:text="@string/CbtnInsertarPrecio" />
 
 </RelativeLayout>

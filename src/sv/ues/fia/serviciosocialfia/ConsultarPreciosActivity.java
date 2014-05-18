@@ -31,20 +31,21 @@ ListView ListaPrecios;
 		
 		    TipoDeTrabajo  tipotrabajo=new TipoDeTrabajo();
 			
-			//for(int i=0;i<listaidTipoTrabajo.size();i++)
+			
 		  
-			for(int i=0;i<listaidTipoTrabajo.size();i++)
+           for(int i=0;i<listaidTipoTrabajo.size();i++)
 				
 			{
 				
 				tipotrabajo=helper.ConsultarTipoTrabajo(listaidTipoTrabajo.get(i));
-			listanombresTipoTrabajo.add(tipotrabajo.getNombreTipo()+" "+"Fecha:"+fechaprecios.get(i));
+			listanombresTipoTrabajo.add(tipotrabajo.getNombreTipo()+"  "+"Fecha:"+fechaprecios.get(i));
+		
 			
 			}
 			
-			/*Toast.makeText(getApplicationContext(),
-	                  "Numero iteraciones items en la lista "+listanombresTipoTrabajo.get(0) , Toast.LENGTH_LONG)
-	                  .show();*/
+			Toast.makeText(getApplicationContext(),
+	                  "tamaño de la lista"+listaidTipoTrabajo.get(1), Toast.LENGTH_LONG)
+	                  .show();
 			
 
 			 ArrayAdapter<String> adaptador = new ArrayAdapter<String>(ConsultarPreciosActivity.this, android.R.layout.simple_list_item_1,listanombresTipoTrabajo );
@@ -69,6 +70,8 @@ ListView ListaPrecios;
 	                      .show();
 	                    ModElimPreciosActivity.idprecio=idprecios.get(position);
 	                    ModElimPreciosActivity.nombreTipoTrabajo=listanombresTipoTrabajo.get(position);
+	                    ModElimPreciosActivity.idtipotrabajo=listaidTipoTrabajo.get(position);
+	                    ModElimPreciosActivity.FechaIn=fechaprecios.get(position);
 	                  //Abrimos el activity donde se mostrara el proyecto seleccionado
 	                    Intent AbrirActModElimPrecios = new Intent(ConsultarPreciosActivity.this, ModElimPreciosActivity.class);
 	                    startActivity(AbrirActModElimPrecios);

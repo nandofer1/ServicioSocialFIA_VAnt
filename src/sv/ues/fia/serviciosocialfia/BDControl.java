@@ -1265,13 +1265,14 @@ public class BDControl extends SQLiteOpenHelper {
 	}
 	
 	
-	//COSME FUNCION CONSULTA DE PROYECTOS PENDIENTES DE APROBACION
+	//COSME FUNCION CONSULTA precios ordenar en la lista por nombre y fecha
 	
 		public void consultarPrecios(ArrayList<String> idtipotrabajo, ArrayList<String> idprecios,ArrayList<String> fechas){
 			//ABRIENDO LA BASE
 			SQLiteDatabase db = getWritableDatabase();
 			Precios precio = new Precios();
-		Cursor cursor=db.rawQuery("SELECT * FROM PRECIOS", null);
+			
+		Cursor cursor=db.rawQuery("SELECT * FROM PRECIOS ORDER BY   IDTIPODETRABAJO AND CORR DESC", null);
 			if(cursor.moveToFirst()){
 				
 				//AGARRO EL PRIMERO VALOR 
@@ -1284,7 +1285,6 @@ public class BDControl extends SQLiteOpenHelper {
 				idtipotrabajo.add(cursor.getString(1));
 				idprecios.add(Integer.toString(cursor.getInt(0)));
 				fechas.add(cursor.getString(3));
-				
 				
 				
 				
@@ -1379,6 +1379,37 @@ public class BDControl extends SQLiteOpenHelper {
 			
 			}
 		}
+		
+		
+		//COSME CONSULTAR Precios por idtipotrabajo
+				public Precios consultarPrecio(String idtipotrabajo){
+					//ABRIENDO LA BASE
+					SQLiteDatabase db = getWritableDatabase();
+				String idtp[]={idtipotrabajo};
+				
+					Cursor cursor = db.rawQuery(" SELECT * FROM PRECIOS  WHERE IDTIPODETRABAJO= ?", idtp);
+
+					if(cursor.moveToFirst()){//TOMA EL ULTIMO PRECIO PARA ESA ACTIVIDAD PARA AGREGARLE FECHA FINAL ANTES DE AGREGAR
+					Precios PRECIOS = new Precios();
+					
+						PRECIOS.setCorrelativo(cursor.getInt(0));//se cambio a getInt
+						PRECIOS.setIdTipoDeTrabajo(cursor.getString(1));
+						PRECIOS.setPrecio(cursor.getFloat(2));
+						PRECIOS.setFechaInicialApliPre(cursor.getColumnName(3));
+						PRECIOS.setFechaFinalApliPre(cursor.getColumnName(4));
+						PRECIOS.setObservacion(cursor.getString(5));
+						
+						return PRECIOS;
+						
+						
+						
+					}else{
+					return null;
+					
+					}
+				}
+		
+		
 			
 			//COSME CONSULTAR  PRECIO NORMAL POR ID
 			public Precios consultarPrecio(int CORR){
